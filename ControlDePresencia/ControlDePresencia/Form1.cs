@@ -38,5 +38,17 @@ namespace ControlDePresencia
         {
 
         }
+
+        private void btnPresencia_Click(object sender, EventArgs e)
+        {
+            FormPresencia presencia = new FormPresencia();
+            presencia.ShowDialog();
+        }
+
+        private void btnPermanencia_Click(object sender, EventArgs e)
+        {
+            FrmPermanencia permanencia = new FrmPermanencia();
+            permanencia.ShowDialog();
+        }
     }
 }

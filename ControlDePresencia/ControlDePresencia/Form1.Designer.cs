@@ -57,6 +57,7 @@
             this.btnPresencia.TabIndex = 3;
             this.btnPresencia.Text = "Presencia";
             this.btnPresencia.UseVisualStyleBackColor = true;
+            this.btnPresencia.Click += new System.EventHandler(this.btnPresencia_Click);
             // 
             // btnPermanencia
             // 
@@ -67,6 +68,7 @@
             this.btnPermanencia.TabIndex = 4;
             this.btnPermanencia.Text = "Permanencia";
             this.btnPermanencia.UseVisualStyleBackColor = true;
+            this.btnPermanencia.Click += new System.EventHandler(this.btnPermanencia_Click);
             // 
             // btnMantenimiento
             // 
