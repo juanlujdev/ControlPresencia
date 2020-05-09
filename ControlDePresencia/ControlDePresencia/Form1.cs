@@ -19,14 +19,18 @@ namespace ControlDePresencia
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
 
         private void lblEntrada_Click(object sender, EventArgs e)
         {
-            BDatos.ConexionBD();
-            BDatos.AbrirConexion();
-            BDatos.CerrarConexion();
+            //Comprobacion Metodos Acceso a base de datos
+            //BDatos.ConexionBD();
+            //BDatos.AbrirConexion();
+            //BDatos.CerrarConexion();
+
+            //Comprobacion comprobar letra
+            if (LibreriaMetodos.ComprobarLetra("33563572V")) MessageBox.Show("Letra del DNI correcta");
+
 
         }
     }

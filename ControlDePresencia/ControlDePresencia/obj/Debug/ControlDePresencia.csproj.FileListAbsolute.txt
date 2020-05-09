@@ -1,5 +1,4 @@
 C:\Users\ferri\source\repos\ProjectoProgramacion\ControlDePresencia\ControlDePresencia\obj\Debug\ControlDePresencia.csprojAssemblyReference.cache
-C:\Users\ferri\source\repos\ProjectoProgramacion\ControlDePresencia\ControlDePresencia\obj\Debug\ControlDePresencia.Form1.resources
 C:\Users\ferri\source\repos\ProjectoProgramacion\ControlDePresencia\ControlDePresencia\obj\Debug\ControlDePresencia.Properties.Resources.resources
 C:\Users\ferri\source\repos\ProjectoProgramacion\ControlDePresencia\ControlDePresencia\obj\Debug\ControlDePresencia.csproj.GenerateResource.cache
 C:\Users\ferri\source\repos\ProjectoProgramacion\ControlDePresencia\ControlDePresencia\obj\Debug\ControlDePresencia.csproj.CoreCompileInputs.cache
@@ -32,3 +31,4 @@ C:\Users\ferri\source\repos\ProjectoProgramacion\ControlDePresencia\ControlDePre
 C:\Users\ferri\source\repos\ProjectoProgramacion\ControlDePresencia\ControlDePresencia\obj\Debug\ControlDePresencia.csproj.CopyComplete
 C:\Users\ferri\source\repos\ProjectoProgramacion\ControlDePresencia\ControlDePresencia\obj\Debug\ControlDePresencia.exe
 C:\Users\ferri\source\repos\ProjectoProgramacion\ControlDePresencia\ControlDePresencia\obj\Debug\ControlDePresencia.pdb
+C:\Users\ferri\source\repos\ProjectoProgramacion\ControlDePresencia\ControlDePresencia\obj\Debug\ControlDePresencia.FormPrincipal.resources
