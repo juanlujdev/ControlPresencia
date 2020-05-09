@@ -16,9 +16,14 @@ namespace ControlDePresencia
         {
             InitializeComponent();
         }
+        private void tmrReloj_Tick(object sender, EventArgs e)
+        {
+            lblReloj.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            lblReloj.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
         private void lblEntrada_Click(object sender, EventArgs e)
