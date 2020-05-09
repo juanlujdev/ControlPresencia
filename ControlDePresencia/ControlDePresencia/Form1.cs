@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,14 +29,13 @@ namespace ControlDePresencia
 
         private void lblEntrada_Click(object sender, EventArgs e)
         {
-            //Comprobacion Metodos Acceso a base de datos
-            //BDatos.ConexionBD();
-            //BDatos.AbrirConexion();
-            //BDatos.CerrarConexion();
+            string nif = txtDni.Text;
+            if (LibreriaMetodos.ComprobarLetra(nif)) MessageBox.Show("Coincide la letra"); //Comprobacion
+            if (LibreriaMetodos.ComprobarEmpleado(nif)) MessageBox.Show("Si que se obtuvo coincidencia"); //Comprobacion
+        }
 
-            //Comprobacion comprobar letra
-            if (LibreriaMetodos.ComprobarLetra("33563572V")) MessageBox.Show("Letra del DNI correcta");
-
+        private void btnSalida_Click(object sender, EventArgs e)
+        {
 
         }
     }

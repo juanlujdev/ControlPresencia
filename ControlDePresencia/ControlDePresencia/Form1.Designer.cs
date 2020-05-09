@@ -46,6 +46,7 @@
             this.btnSalida.TabIndex = 2;
             this.btnSalida.Text = "Salida";
             this.btnSalida.UseVisualStyleBackColor = true;
+            this.btnSalida.Click += new System.EventHandler(this.btnSalida_Click);
             // 
             // btnPresencia
             // 

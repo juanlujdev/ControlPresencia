@@ -18,7 +18,7 @@ namespace ControlDePresencia
             //Conexión Local
             string server = "server=127.0.0.1;";
             string port = "port=3306;";
-            string database = "database=BDUsuarios;";
+            string database = "database=control_presencia;";
             string usuario = "uid=root;";
             string password = "pwd=;";
             string datetime = "Convert Zero Datetime = True";
@@ -51,6 +51,7 @@ namespace ControlDePresencia
             try
             {
                 conexion.Close();
+                MessageBox.Show("Se cierra la conexion"); //Comprobacion
                 return true;
             }
             catch (MySqlException ex)
