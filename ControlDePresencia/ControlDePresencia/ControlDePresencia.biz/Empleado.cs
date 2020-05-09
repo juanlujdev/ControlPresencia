@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ControlDePresencia.ControlDePresencia.biz
 {
-    class Class1
+    class Empleado
     {
     }
 }
