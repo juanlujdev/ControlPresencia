@@ -93,6 +93,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlDePresencia.biz\Fichaje.cs" />
     <Compile Include="ControlDePresencia.biz\Empleado.cs" />
     <Compile Include="ControlDePresencia.common\LibreriaMetodos.cs" />
     <Compile Include="ControlDePresencia.data\BDatos.cs" />

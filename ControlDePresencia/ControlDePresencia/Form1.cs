@@ -13,6 +13,9 @@ namespace ControlDePresencia
 {
     public partial class FormPrincipal : Form
     {
+
+        MySqlConnection conexion = BDatos.ConexionBD();
+
         public FormPrincipal()
         {
             InitializeComponent();
@@ -30,8 +33,38 @@ namespace ControlDePresencia
         private void lblEntrada_Click(object sender, EventArgs e)
         {
             string nif = txtDni.Text;
-            if (LibreriaMetodos.ComprobarLetra(nif)) MessageBox.Show("Coincide la letra"); //Comprobacion
-            if (LibreriaMetodos.ComprobarEmpleado(nif)) MessageBox.Show("Si que se obtuvo coincidencia"); //Comprobacion
+            try
+            {
+                if (BDatos.AbrirConexion())
+                {
+                    if (LibreriaMetodos.ComprobarLetra(nif)) MessageBox.Show("Coincide la letra"); //Comprobacion
+                    if (LibreriaMetodos.ComprobarEmpleado(nif, conexion)) MessageBox.Show("Si que se obtuvo coincidencia"); //Comprobacion
+                    if (LibreriaMetodos.ComprobarFichaje(nif,conexion))
+                    {
+                        //No hace nada
+                        MessageBox.Show("Si obtuvo coincidencia");
+                    }
+                    else
+                    {
+                        //Hay que darlo de alta
+                        MessageBox.Show("No obtuvo coincidencia");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No hay conexion");
+                };
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                BDatos.CerrarConexion();
+            }
+            //if (LibreriaMetodos.ComprobarLetra(nif)) MessageBox.Show("Coincide la letra"); //Comprobacion
+            //if (LibreriaMetodos.ComprobarEmpleado(nif)) MessageBox.Show("Si que se obtuvo coincidencia"); //Comprobacion
         }
 
         private void btnSalida_Click(object sender, EventArgs e)
