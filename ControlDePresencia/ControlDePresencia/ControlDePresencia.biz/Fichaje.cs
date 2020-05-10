@@ -13,26 +13,24 @@ namespace ControlDePresencia.ControlDePresencia.biz
         private string nif;
         private DateTime horaEntrada;
         private DateTime horaSalida;
-        private bool entrada;
-        private bool salida;
+        private bool finalizar;
 
         public string Nif { get {return nif; } set { nif = value; } }
         public DateTime HoraEntrada { get {return horaEntrada; } set { horaEntrada = value; } }
         public DateTime HoraSalida { get {return horaSalida; } set { horaSalida = value; } }
-        public bool Entrada { get {return entrada; } set { entrada = value; } }
-        public bool Salida { get {return salida; } set { salida = value; } }
+        public bool Finalizar { get {return finalizar; } set { finalizar = value; } }
 
         public Fichaje()
         {
 
         }
-        public Fichaje(string nif, DateTime hE, DateTime hS, bool e,bool s)
+        public Fichaje(string nif, DateTime hE, DateTime hS, bool f)
         {
             this.nif = nif;
             horaEntrada = hE;
             horaSalida = hS;
-            entrada = e;
-            salida = s;
+            finalizar = f;
+            //salida = s;
         }
         public bool DarAlta(MySqlConnection conexion)
         {
@@ -40,8 +38,8 @@ namespace ControlDePresencia.ControlDePresencia.biz
             bool alta;
 
             string consulta = 
-            String.Format("INSERT INTO fichaje (nif,horaEntrada,horaSalida,entrada,salida) " +
-            "VALUE ('{0}','{1}','{2}',{3},{4});", nif,horaEntrada.ToString("yyyy-MM-dd hh:mm:ss"),horaSalida,entrada,salida);
+            String.Format("INSERT INTO fichaje (nif,horaEntrada,horaSalida,finalizar) " +
+            "VALUE ('{0}','{1}','{2}',{3});", nif,horaEntrada.ToString("yyyy-MM-dd hh:mm:ss"),horaSalida,finalizar);
             MessageBox.Show(consulta);
             MySqlCommand command = new MySqlCommand(consulta, conexion);
             retorno = command.ExecuteNonQuery();
@@ -57,7 +55,7 @@ namespace ControlDePresencia.ControlDePresencia.biz
             DateTime horaSalida = DateTime.Now;
 
             string consulta =
-            String.Format("UPDATE fichaje SET horaSalida = '{0}', salida = TRUE WHERE nif = '{1}' AND salida = false;"
+            String.Format("UPDATE fichaje SET horaSalida = '{0}', finalizar = TRUE WHERE nif = '{1}' AND finalizar = FALSE;"
             ,horaSalida.ToString("yyyy-MM-dd hh:mm:ss"),nif);
             MessageBox.Show(consulta);
             MySqlCommand command = new MySqlCommand(consulta, conexion);

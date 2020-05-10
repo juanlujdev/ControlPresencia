@@ -50,7 +50,7 @@ namespace ControlDePresencia
         static public bool ComprobarFichaje(string nif, MySqlConnection conexion)
         {
             bool exist = false; //Almacenara F/T dependiendo si encuentra o no coincidencia
-            string consulta = String.Format("SELECT * FROM fichaje WHERE nif = '{0}' AND entrada = true and salida = false;", nif); //Query
+            string consulta = String.Format("SELECT * FROM fichaje WHERE nif = '{0}' AND finalizar = false;", nif); //Query
             MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta
             MessageBox.Show(consulta); //Comprobacion
             //if (BDatos.AbrirConexion()) //Abre la conexion e intenta conectar ala BBDD, si da false no lo ha conseguido
@@ -68,7 +68,7 @@ namespace ControlDePresencia
         }
         static public BindingSource MostrarEmpleado(MySqlConnection conexion)
         {
-            string consulta  = "SELECT nombre, apellidos,horaEntrada FROM empleado INNER JOIN fichaje ON empleado.nif=fichaje.nif WHERE salida=FALSE";
+            string consulta  = "SELECT nombre, apellidos,horaEntrada FROM empleado INNER JOIN fichaje ON empleado.nif=fichaje.nif WHERE finalizar=FALSE";
             MySqlCommand comando = new MySqlCommand(consulta, conexion);
             MessageBox.Show(consulta);
             MySqlDataReader reader = comando.ExecuteReader();

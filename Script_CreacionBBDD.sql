@@ -13,8 +13,7 @@ CREATE TABLE if NOT EXISTS fichaje(
 nif VARCHAR(20) NOT NULL,
 horaEntrada DATETIME NOT NULL,
 horaSalida DATETIME NOT NULL,
-entrada TINYINT(1), ##Es necesario dos campos , para hacer la comprobación al tener campos repetidos.
-salida TINYINT(1));
+finalizar TINYINT(1));
 ##Se elimina la primary key , para poder repetir el nif. (Se podria añadir una primary autoincrement  si fuera necesario)
 
 alter table fichaje ADD CONSTRAINT fk_1 FOREIGN KEY (nif) REFERENCES empleado (nif);
@@ -23,8 +22,8 @@ INSERT INTO empleado (`alta`,`nif`,`nombre`,`apellidos`,`administrador`,`contras
 INSERT INTO empleado (alta,nif,nombre,apellidos,administrador,contraseña) VALUES (TRUE,'22585431y','Antonio','Carmona',FALSE,NULL);
 INSERT INTO empleado (alta,nif,nombre,apellidos,administrador,contraseña) VALUES (TRUE,'22585111y','Carlos','Aparicio',FALSE,NULL);
 INSERT INTO empleado (alta,nif,nombre,apellidos,administrador,contraseña) VALUES (TRUE,'33563572V','Jose','Romero',FALSE,null);
-INSERT INTO fichaje (nif,horaEntrada,horaSalida,entrada,salida) VALUE ('22585431y','2020-10-05 08:00:00','0000-00-00 00:00:00',TRUE,false);
-INSERT INTO fichaje (nif,horaEntrada,horaSalida,entrada,salida) VALUE ('22585111y','2020-10-05 08:00:00','2020-10-05 13:00:00',TRUE,false);
+INSERT INTO fichaje (nif,horaEntrada,horaSalida,finalizar) VALUE ('22585431y','2020-10-05 08:00:00','0000-00-00 00:00:00',false);
+INSERT INTO fichaje (nif,horaEntrada,horaSalida,finalizar) VALUE ('22585111y','2020-10-05 08:00:00','2020-10-05 13:00:00',false);
 
 #Pruebas de consultas
 SELECT * FROM empleado WHERE nif = "11111111H" AND alta = TRUE;

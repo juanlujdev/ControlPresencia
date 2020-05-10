@@ -55,7 +55,7 @@ namespace ControlDePresencia
                             {
                                 //Dar de alta en fichaje
                                 MessageBox.Show("No obtuvo coincidencia en fichajes");
-                                Fichaje fichaje = new Fichaje(nif, DateTime.Now, DateTime.MinValue,true,false);
+                                Fichaje fichaje = new Fichaje(nif, DateTime.Now, DateTime.MinValue,false);
                                 if (fichaje.DarAlta(conexion))
                                 {
                                     MessageBox.Show("Se ha dado de alta");
