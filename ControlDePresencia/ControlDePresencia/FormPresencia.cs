@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,9 @@ namespace ControlDePresencia
 {
     public partial class FormPresencia : Form
     {
+        MySqlConnection conexion = BDatos.ConexionBD();
+        
+
         public FormPresencia()
         {
             InitializeComponent();
@@ -21,10 +25,37 @@ namespace ControlDePresencia
         {
             this.Close();
         }
-
         private void FormPresencia_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (BDatos.AbrirConexion())
+                {
+                    BindingSource lista = LibreriaMetodos.MostrarEmpleado(conexion);
+                    dgvListado.DataSource = lista;
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido abrir la conexion.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
+            }
+            finally  // en cualquier caso cierro la conexión (haya error o no)
+            {
+                BDatos.CerrarConexion();
+            }
+        }
+        private void dgvListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
     }
+    
 }
+
+       
+    
+

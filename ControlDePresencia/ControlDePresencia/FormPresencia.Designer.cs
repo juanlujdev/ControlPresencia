@@ -40,6 +40,7 @@
             this.dgvListado.Name = "dgvListado";
             this.dgvListado.Size = new System.Drawing.Size(419, 252);
             this.dgvListado.TabIndex = 0;
+            this.dgvListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListado_CellContentClick);
             // 
             // btnCerrar
             // 

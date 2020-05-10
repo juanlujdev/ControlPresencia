@@ -10,9 +10,7 @@ using System.CodeDom;
 
 namespace ControlDePresencia
 {   /// <summary>
-    ///LA IDEA ES ESTABLECER , LANZAR LA CONSULTA , OBTENER LOS DATOS , Y CERRAR LA CONSULTA EN LA LIBRERIA DE METODOS, 
-    ///JUNTO CON LAS EXPECCIONES DERIVADAS DE LAS CONSULTAS, SEPARANDO COMPLETAMENTE DEL FORM 
-    ///POR OTRA PARTE , SE ABREN LAS CONEXIONES POR TANTOS METODOS SE UTILIZEN :P, NO SI ES LO MEJOR O QUE
+    ///
     /// </summary>
     static class LibreriaMetodos
     {
@@ -38,8 +36,8 @@ namespace ControlDePresencia
             MessageBox.Show(consulta); //Comprobacion
             //if (BDatos.AbrirConexion()) //Abre la conexion e intenta conectar ala BBDD, si da false no lo ha conseguido
             //{
-                MySqlDataReader reader = comando.ExecuteReader(); //Lanza la consulta
-                exist = reader.HasRows ? true : false;
+            MySqlDataReader reader = comando.ExecuteReader(); //Lanza la consulta
+            exist = reader.HasRows ? true : false;
             reader.Close();
             //BDatos.CerrarConexion(); //Se cierra la conexión una vez realizada la consulta correctamente
             //}
@@ -52,11 +50,11 @@ namespace ControlDePresencia
         static public bool ComprobarFichaje(string nif, MySqlConnection conexion)
         {
             bool exist = false; //Almacenara F/T dependiendo si encuentra o no coincidencia
-            string consulta = String.Format("SELECT * FROM fichaje WHERE nif = '{0}';", nif); //Query
+            string consulta = String.Format("SELECT * FROM fichaje WHERE nif = '{0}' AND entrada = true and salida = false;", nif); //Query
             MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta
             MessageBox.Show(consulta); //Comprobacion
-                                       //if (BDatos.AbrirConexion()) //Abre la conexion e intenta conectar ala BBDD, si da false no lo ha conseguido
-                                       //{
+            //if (BDatos.AbrirConexion()) //Abre la conexion e intenta conectar ala BBDD, si da false no lo ha conseguido
+            //{
             MySqlDataReader reader = comando.ExecuteReader(); //Lanza la consulta
             exist = reader.HasRows ? true : false;
             reader.Close();
@@ -67,6 +65,19 @@ namespace ControlDePresencia
             //  MessageBox.Show("Conexion no establecida con la base de datos"); //No ha establecido conexioin
             //}
             return exist;
+        }
+        static public BindingSource MostrarEmpleado(MySqlConnection conexion)
+        {
+            string consulta  = "SELECT nombre, apellidos,horaEntrada FROM empleado INNER JOIN fichaje ON empleado.nif=fichaje.nif WHERE salida=FALSE";
+            MySqlCommand comando = new MySqlCommand(consulta, conexion);
+            MessageBox.Show(consulta);
+            MySqlDataReader reader = comando.ExecuteReader();
+            BindingSource bs = new BindingSource(); ///QUE ES EXACTAMENTE?¿?¿?¿
+            bs.DataSource = reader;
+            reader.Close();
+            return bs;
+            
+
         }
     }
 }

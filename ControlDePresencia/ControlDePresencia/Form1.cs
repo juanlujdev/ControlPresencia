@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using ControlDePresencia.ControlDePresencia.biz;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,18 +38,35 @@ namespace ControlDePresencia
             {
                 if (BDatos.AbrirConexion())
                 {
-                    if (LibreriaMetodos.ComprobarLetra(nif)) MessageBox.Show("Coincide la letra"); //Comprobacion
-                    if (LibreriaMetodos.ComprobarEmpleado(nif, conexion)) MessageBox.Show("Si que se obtuvo coincidencia"); //Comprobacion
-                    if (LibreriaMetodos.ComprobarFichaje(nif,conexion))
+                    if (LibreriaMetodos.ComprobarLetra(nif))
                     {
-                        //No hace nada
-                        MessageBox.Show("Si obtuvo coincidencia");
-                    }
-                    else
-                    {
-                        //Hay que darlo de alta
-                        MessageBox.Show("No obtuvo coincidencia");
-                    }
+                        MessageBox.Show("Coincide la letra"); //Comprobacion
+
+                        if (LibreriaMetodos.ComprobarEmpleado(nif, conexion))
+                        {
+                            MessageBox.Show("Si que se obtuvo coincidencia en empleados"); //Comprobacion
+
+                            if (LibreriaMetodos.ComprobarFichaje(nif, conexion))
+                            {
+                                //No hace nada
+                                MessageBox.Show("Si obtuvo coincidencia en fichajes");
+                            }
+                            else
+                            {
+                                //Dar de alta en fichaje
+                                MessageBox.Show("No obtuvo coincidencia en fichajes");
+                                Fichaje fichaje = new Fichaje(nif, DateTime.Now, DateTime.MinValue,true,false);
+                                if (fichaje.DarAlta(conexion))
+                                {
+                                    MessageBox.Show("Se ha dado de alta");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Fallo al dar de alta");
+                                }
+                            }
+                        } else MessageBox.Show("El empleado no existe");
+                    } else MessageBox.Show("La letra no coincide");
                 }
                 else
                 {
@@ -69,6 +87,50 @@ namespace ControlDePresencia
 
         private void btnSalida_Click(object sender, EventArgs e)
         {
+            string nif = txtDni.Text;
+            try
+            {
+                if (BDatos.AbrirConexion())
+                {
+                    if (LibreriaMetodos.ComprobarLetra(nif))
+                    {
+                        MessageBox.Show("Coincide la letra"); //Comprobacion
+
+                        if (LibreriaMetodos.ComprobarEmpleado(nif, conexion))
+                        {
+                            MessageBox.Show("Si que se obtuvo coincidencia en empleados"); //Comprobacion
+
+                            if (LibreriaMetodos.ComprobarFichaje(nif, conexion))
+                            {
+                                //Si hay coincidencia, da salida
+                                Fichaje fichaje = new Fichaje();
+                                if(fichaje.DarSalida(conexion, nif))
+                                {
+                                    MessageBox.Show("Se ha dado salida");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No se  ha dado salida");
+                                }
+                            }else MessageBox.Show("No hay coincidencia de fichaje");
+                        }
+                        else MessageBox.Show("El empleado no existe");
+                    }
+                    else MessageBox.Show("La letra no coincide");
+                }
+                else
+                {
+                    MessageBox.Show("No hay conexion");
+                };
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                BDatos.CerrarConexion();
+            }
 
         }
 
