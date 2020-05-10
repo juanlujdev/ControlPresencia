@@ -75,8 +75,19 @@ namespace ControlDePresencia
             BindingSource bs = new BindingSource(); ///QUE ES EXACTAMENTE?¿?¿?¿
             bs.DataSource = reader;
             reader.Close();
+            return bs;         
+
+        }
+        static public BindingSource MostrarFichaje(DateTime fecha1, DateTime fecha2, MySqlConnection conexion, string nif)
+        {
+            string consulta = String.Format("SELECT horaEntrada, horaSalida, TIMESTAMPDIFF (MINUTE, {0}, {1}) AS Duracion_Minutos from fichaje WHERE finalizar='{2}' AND nif ='{3}';",fecha1.ToString("yyyy-MM-dd hh:mm:ss"),fecha2.ToString("yyyy-MM-dd hh:mm:ss"), true, nif);           
+            MySqlCommand comando = new MySqlCommand(consulta, conexion);
+            MessageBox.Show(consulta);
+            MySqlDataReader reader = comando.ExecuteReader();
+            BindingSource bs = new BindingSource(); ///QUE ES EXACTAMENTE?¿?¿?¿
+            bs.DataSource = reader;
+            reader.Close();
             return bs;
-            
 
         }
     }

@@ -142,8 +142,40 @@ namespace ControlDePresencia
 
         private void btnPermanencia_Click(object sender, EventArgs e)
         {
-            FrmPermanencia permanencia = new FrmPermanencia();
-            permanencia.ShowDialog();
+            string nif = txtDni.Text;
+            try
+            {
+                if (BDatos.AbrirConexion())
+                {
+                    if (LibreriaMetodos.ComprobarLetra(nif))
+                    {
+                        MessageBox.Show("Coincide la letra"); //Comprobacion
+
+                        if (LibreriaMetodos.ComprobarEmpleado(nif, conexion))
+                        {
+                            MessageBox.Show("Si que se obtuvo coincidencia en empleados"); //Comprobacion  
+                            FrmPermanencia permanencia = new FrmPermanencia(nif);// Si todo es ok abre el formulario                            
+                            permanencia.ShowDialog();
+                        }
+                        else MessageBox.Show("El empleado no existe");
+                    }
+                    else MessageBox.Show("La letra no coincide");
+                }
+                else
+                {
+                    MessageBox.Show("No hay conexion");
+                };
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                BDatos.CerrarConexion();
+            }
+
+           
         }
     }
 }

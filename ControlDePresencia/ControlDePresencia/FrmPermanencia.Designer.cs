@@ -35,6 +35,8 @@
             this.dgvPermanencia = new System.Windows.Forms.DataGridView();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.lblDni = new System.Windows.Forms.Label();
+            this.lblMostrarDni = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermanencia)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +70,7 @@
             // 
             this.lblFecha2.AutoSize = true;
             this.lblFecha2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha2.Location = new System.Drawing.Point(276, 22);
+            this.lblFecha2.Location = new System.Drawing.Point(290, 21);
             this.lblFecha2.Name = "lblFecha2";
             this.lblFecha2.Size = new System.Drawing.Size(73, 20);
             this.lblFecha2.TabIndex = 3;
@@ -77,7 +79,7 @@
             // dgvPermanencia
             // 
             this.dgvPermanencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPermanencia.Location = new System.Drawing.Point(56, 56);
+            this.dgvPermanencia.Location = new System.Drawing.Point(47, 105);
             this.dgvPermanencia.Name = "dgvPermanencia";
             this.dgvPermanencia.Size = new System.Drawing.Size(431, 258);
             this.dgvPermanencia.TabIndex = 4;
@@ -85,17 +87,18 @@
             // btnConsultar
             // 
             this.btnConsultar.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultar.Location = new System.Drawing.Point(97, 334);
+            this.btnConsultar.Location = new System.Drawing.Point(95, 369);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(113, 41);
             this.btnConsultar.TabIndex = 5;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // btnCerrar
             // 
             this.btnCerrar.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.Location = new System.Drawing.Point(322, 334);
+            this.btnCerrar.Location = new System.Drawing.Point(320, 369);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(113, 41);
             this.btnCerrar.TabIndex = 6;
@@ -103,11 +106,33 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // lblDni
+            // 
+            this.lblDni.AutoSize = true;
+            this.lblDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDni.Location = new System.Drawing.Point(69, 73);
+            this.lblDni.Name = "lblDni";
+            this.lblDni.Size = new System.Drawing.Size(139, 16);
+            this.lblDni.TabIndex = 7;
+            this.lblDni.Text = "DNI del Empleado:";
+            // 
+            // lblMostrarDni
+            // 
+            this.lblMostrarDni.AutoSize = true;
+            this.lblMostrarDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMostrarDni.Location = new System.Drawing.Point(253, 73);
+            this.lblMostrarDni.Name = "lblMostrarDni";
+            this.lblMostrarDni.Size = new System.Drawing.Size(45, 16);
+            this.lblMostrarDni.TabIndex = 8;
+            this.lblMostrarDni.Text = "label1";
+            // 
             // FrmPermanencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 391);
+            this.ClientSize = new System.Drawing.Size(546, 446);
+            this.Controls.Add(this.lblMostrarDni);
+            this.Controls.Add(this.lblDni);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.dgvPermanencia);
@@ -117,6 +142,7 @@
             this.Controls.Add(this.dtpFecha1);
             this.Name = "FrmPermanencia";
             this.Text = "FrmPermanencia";
+            this.Load += new System.EventHandler(this.FrmPermanencia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermanencia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -132,5 +158,7 @@
         private System.Windows.Forms.DataGridView dgvPermanencia;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Label lblDni;
+        private System.Windows.Forms.Label lblMostrarDni;
     }
 }
