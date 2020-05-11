@@ -32,5 +32,10 @@ namespace ControlDePresencia
             this.Close();
 
         }
+
+        private void FrmContraseñaMantenimiento_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

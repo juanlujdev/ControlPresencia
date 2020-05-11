@@ -48,11 +48,12 @@ namespace ControlDePresencia
             {
                 this.administrador = true;
                 if (txtContraseña.Text == "") MessageBox.Show("Es necesaria una contraseña");
+                this.contraseña = txtContraseña.Text;
             }
             else
             {
                 this.administrador = false;
-                txtContraseña.Text = null;
+                this.contraseña = null;
             }
             this.Close();
         }

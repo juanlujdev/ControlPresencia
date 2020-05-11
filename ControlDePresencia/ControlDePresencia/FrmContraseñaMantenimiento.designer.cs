@@ -74,6 +74,7 @@
             this.Controls.Add(this.txtContraseña);
             this.Name = "FrmContraseñaMantenimiento";
             this.Text = "FrmDniMantenimiento";
+            this.Load += new System.EventHandler(this.FrmContraseñaMantenimiento_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

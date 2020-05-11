@@ -21,7 +21,9 @@ alter table fichaje ADD CONSTRAINT fk_1 FOREIGN KEY (nif) REFERENCES empleado (n
 INSERT INTO empleado (`alta`,`nif`,`nombre`,`apellidos`,`administrador`,`contraseña`) VALUES (TRUE,'11111111H','Juan','Marques',TRUE,'1dam');
 INSERT INTO empleado (alta,nif,nombre,apellidos,administrador,contraseña) VALUES (TRUE,'22585431y','Antonio','Carmona',FALSE,NULL);
 INSERT INTO empleado (alta,nif,nombre,apellidos,administrador,contraseña) VALUES (TRUE,'22585111y','Carlos','Aparicio',FALSE,NULL);
-INSERT INTO empleado (alta,nif,nombre,apellidos,administrador,contraseña) VALUES (TRUE,'33563572V','Jose','Romero',FALSE,null);
+INSERT INTO empleado (alta,nif,nombre,apellidos,administrador,contraseña) VALUES (TRUE,'33563572V','Jose','Romero',FALSE,NULL);
+INSERT INTO empleado (alta,nif,nombre,apellidos,administrador,contraseña) VALUES (TRUE,'33522222T','Jose','Romero',FALSE,NULL);
+
 INSERT INTO fichaje (nif,horaEntrada,horaSalida,finalizar) VALUE ('22585431y','2020-10-05 08:00:00','0000-00-00 00:00:00',false);
 INSERT INTO fichaje (nif,horaEntrada,horaSalida,finalizar) VALUE ('22585111y','2020-10-05 08:00:00','2020-10-05 13:00:00',FALSE);
 
@@ -38,3 +40,5 @@ SELECT horaEntrada, horaSalida,   horaSalida - horaEntrada AS duracion FROM fich
 SELECT horaEntrada, horaSalida, DATEDIFF ( horaEntrada, horaSalida) AS duracion FROM fichaje WHERE finalizar=TRUE AND nif ="22585111y";
 SELECT horaEntrada, horaSalida, TIMESTAMPDIFF (MINUTE, horaEntrada, horaSalida) AS Duracion_Minutos from fichaje 
 WHERE finalizar=true AND nif ='33563572V' AND horaSalida BETWEEN '2020-05-10 00:00:00' AND '2020-05-11 23:59:59';
+SELECT * FROM empleado WHERE administrador = TRUE AND WHERE ;
+SELECT * FROM empleado WHERE administrador = TRUE AND 

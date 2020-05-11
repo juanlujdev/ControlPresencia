@@ -77,3 +77,4 @@ E:\PortatilCasa\Desktop\AV7\ControlDePresencia\ControlDePresencia\obj\Debug\Cont
 E:\PortatilCasa\Desktop\AV7\ControlDePresencia\ControlDePresencia\obj\Debug\ControlDePresencia.FormMantenimiento.resources
 E:\PortatilCasa\Desktop\AV7\ControlDePresencia\ControlDePresencia\obj\Debug\ControlDePresencia.FrmContraseñaMantenimiento.resources
 >>>>>>> 0c5236eee08000d09a6c126f93c2e3e0fef8bffa
+C:\Users\ferri\source\repos\ProjectoProgramacion\ControlDePresencia\ControlDePresencia\obj\Debug\ControlDePresencia.FrmContraseñaMantenimiento.resources
