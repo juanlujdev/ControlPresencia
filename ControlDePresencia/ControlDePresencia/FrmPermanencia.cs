@@ -57,5 +57,10 @@ namespace ControlDePresencia
                 BDatos.CerrarConexion();
             }
         }
+
+        private void dgvPermanencia_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

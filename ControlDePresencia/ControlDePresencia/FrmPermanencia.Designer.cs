@@ -83,6 +83,7 @@
             this.dgvPermanencia.Name = "dgvPermanencia";
             this.dgvPermanencia.Size = new System.Drawing.Size(431, 258);
             this.dgvPermanencia.TabIndex = 4;
+            this.dgvPermanencia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPermanencia_CellContentClick);
             // 
             // btnConsultar
             // 
