@@ -136,8 +136,21 @@ namespace ControlDePresencia
 
         private void btnPresencia_Click(object sender, EventArgs e)
         {
-            FormPresencia presencia = new FormPresencia();
-            presencia.ShowDialog();
+            try
+            {
+                if (BDatos.AbrirConexion())
+                {
+                    FormPresencia presencia = new FormPresencia();
+                    presencia.ShowDialog();
+                }
+            }catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                BDatos.CerrarConexion();
+            }  
         }
 
         private void btnPermanencia_Click(object sender, EventArgs e)
