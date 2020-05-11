@@ -97,11 +97,23 @@
     <Compile Include="ControlDePresencia.biz\Empleado.cs" />
     <Compile Include="ControlDePresencia.common\LibreriaMetodos.cs" />
     <Compile Include="ControlDePresencia.data\BDatos.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormPrincipal.Designer.cs">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMantenimiento.Designer.cs">
+      <DependentUpon>FormMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDatos.Designer.cs">
+      <DependentUpon>FormDatos.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPresencia.cs">
       <SubType>Form</SubType>
@@ -117,8 +129,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormDatos.resx">
+      <DependentUpon>FormDatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrincipal.resx">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMantenimiento.resx">
+      <DependentUpon>FormMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPresencia.resx">
       <DependentUpon>FormPresencia.cs</DependentUpon>
