@@ -60,5 +60,36 @@ namespace ControlDePresencia
                 BDatos.CerrarConexion();
             }
         }
+
+        private void FormMantenimiento_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (BDatos.AbrirConexion())
+                {
+                    BindingSource listaEmpleados = LibreriaMetodos.MostrarTodoEmpleado(conexion);
+                    dgvEmpleados.DataSource = listaEmpleados;
+                    BindingSource listaFichajes = LibreriaMetodos.MostrarFichaje(conexion);
+                    dgvFichajes.DataSource = listaFichajes;
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido abrir la conexion.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
+            }
+            finally  // en cualquier caso cierro la conexión (haya error o no)
+            {
+                BDatos.CerrarConexion();
+            }
+        }
+
+        private void btnSalida_Click(object sender, EventArgs e)
+        {
+            this.Close();  
+        }
     }
 }

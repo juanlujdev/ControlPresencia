@@ -60,7 +60,7 @@
             this.btnAcceder.Name = "btnAcceder";
             this.btnAcceder.Size = new System.Drawing.Size(101, 36);
             this.btnAcceder.TabIndex = 2;
-            this.btnAcceder.Text = "Enviar";
+            this.btnAcceder.Text = "Acceder";
             this.btnAcceder.UseVisualStyleBackColor = true;
             this.btnAcceder.Click += new System.EventHandler(this.btnAcceder_Click);
             // 

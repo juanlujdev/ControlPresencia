@@ -47,8 +47,6 @@ namespace ControlDePresencia.ControlDePresencia.biz
         {
             int retorno;
             bool agregado;
-            DateTime horaSalida = DateTime.Now;
-
             string consulta =
             String.Format("INSERT INTO empleado (alta,nif,nombre,apellidos,administrador,contraseña) VALUES" +
             "({0},'{1}','{2}','{3}',{4},'{5}');",alta,nif,nombre,apellidos,administrador,contraseña);
@@ -56,9 +54,7 @@ namespace ControlDePresencia.ControlDePresencia.biz
             MySqlCommand command = new MySqlCommand(consulta, conexion);
             retorno = command.ExecuteNonQuery();
             agregado = retorno > 0 ? true : false;
-
             return agregado;
-
         }
     }
 }

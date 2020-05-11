@@ -35,6 +35,7 @@
             this.txtDni = new System.Windows.Forms.TextBox();
             this.lblReloj = new System.Windows.Forms.Label();
             this.lblEntrada = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSalida
@@ -73,7 +74,7 @@
             // btnMantenimiento
             // 
             this.btnMantenimiento.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMantenimiento.Location = new System.Drawing.Point(119, 322);
+            this.btnMantenimiento.Location = new System.Drawing.Point(53, 319);
             this.btnMantenimiento.Name = "btnMantenimiento";
             this.btnMantenimiento.Size = new System.Drawing.Size(91, 66);
             this.btnMantenimiento.TabIndex = 5;
@@ -111,11 +112,23 @@
             this.lblEntrada.UseVisualStyleBackColor = true;
             this.lblEntrada.Click += new System.EventHandler(this.lblEntrada_Click);
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Location = new System.Drawing.Point(179, 319);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(91, 66);
+            this.btnSalir.TabIndex = 8;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(333, 418);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblReloj);
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.btnMantenimiento);
@@ -139,6 +152,7 @@
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.Label lblReloj;
         private System.Windows.Forms.Button lblEntrada;
+        private System.Windows.Forms.Button btnSalir;
     }
 }
 

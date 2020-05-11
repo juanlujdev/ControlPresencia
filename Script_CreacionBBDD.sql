@@ -41,4 +41,6 @@ SELECT horaEntrada, horaSalida, DATEDIFF ( horaEntrada, horaSalida) AS duracion 
 SELECT horaEntrada, horaSalida, TIMESTAMPDIFF (MINUTE, horaEntrada, horaSalida) AS Duracion_Minutos from fichaje 
 WHERE finalizar=true AND nif ='33563572V' AND horaSalida BETWEEN '2020-05-10 00:00:00' AND '2020-05-11 23:59:59';
 SELECT * FROM empleado WHERE administrador = TRUE AND WHERE ;
-SELECT * FROM empleado WHERE administrador = TRUE AND 
+SELECT * FROM empleado WHERE administrador = TRUE AND ;
+SELECT * FROM empleado;
+SELECT * FROM fichaje;

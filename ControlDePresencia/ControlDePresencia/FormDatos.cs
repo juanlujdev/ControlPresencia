@@ -47,7 +47,7 @@ namespace ControlDePresencia
             if (cbxAdministrador.Checked)
             {
                 this.administrador = true;
-                if (txtContraseña.Text == "") MessageBox.Show("Es necesaria una contraseña");
+                if (txtContraseña.Text == "") { MessageBox.Show("Es necesaria una contraseña"); return; }
                 this.contraseña = txtContraseña.Text;
             }
             else

@@ -56,7 +56,8 @@
             this.btnInforme.Name = "btnInforme";
             this.btnInforme.Size = new System.Drawing.Size(91, 64);
             this.btnInforme.TabIndex = 2;
-            this.btnInforme.Text = "Generar Informe ?¿";
+            this.btnInforme.TabStop = false;
+            this.btnInforme.Text = "Buscar Empleado";
             this.btnInforme.UseVisualStyleBackColor = true;
             // 
             // btnEliminarEmpleado
@@ -92,8 +93,9 @@
             this.btnSalida.Name = "btnSalida";
             this.btnSalida.Size = new System.Drawing.Size(91, 64);
             this.btnSalida.TabIndex = 7;
-            this.btnSalida.Text = "z";
+            this.btnSalida.Text = "Salir";
             this.btnSalida.UseVisualStyleBackColor = true;
+            this.btnSalida.Click += new System.EventHandler(this.btnSalida_Click);
             // 
             // FormMantenimiento
             // 
@@ -108,6 +110,7 @@
             this.Controls.Add(this.btnAgregarEmpleado);
             this.Name = "FormMantenimiento";
             this.Text = "Panel De Mantenimiento";
+            this.Load += new System.EventHandler(this.FormMantenimiento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFichajes)).EndInit();
             this.ResumeLayout(false);

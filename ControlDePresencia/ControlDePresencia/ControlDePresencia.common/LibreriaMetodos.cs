@@ -1,4 +1,5 @@
-﻿using Renci.SshNet.Messages;
+﻿#region Usings
+using Renci.SshNet.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.CodeDom;
+#endregion
 
 namespace ControlDePresencia
 {   /// <summary>
-    ///
+    ///Libreria de Metodos estaticos para comprobacines recurrentes, y consultas 
+    ///especificas a la base de datos para cargar DataGreedView
     /// </summary>
     static class LibreriaMetodos
     {
+        #region Metodo Estaticos de Comprobación
+        /// <summary>
+        /// Comprueba si la letra del dni pasado como parametro es correcta
+        /// </summary>
+        /// <param name="nif"></param>
+        /// <returns>Devuelve tipo bool</returns>
         static public bool ComprobarLetra(string nif)
         {
             string tabla = "TRWAGMYFPDXBNJZSQVHLCKET";
@@ -28,28 +37,40 @@ namespace ControlDePresencia
             if (letraCalculada == letraParametro) return true; return false;
         }
 
+        /// <summary>
+        /// Comprueba si el empleado existe a raiz de un nif pasado como parametro
+        /// </summary>
+        /// <param name="nif"></param>
+        /// <param name="conexion"></param>
+        /// <returns>Devuelve tipo bool</returns>
         static public bool ComprobarEmpleado(string nif, MySqlConnection conexion)
         {
             bool exist = false; //Almacenara F/T dependiendo si encuentra o no coincidencia
             string consulta = String.Format("SELECT * FROM empleado WHERE nif = '{0}' AND alta = {1};", nif,true); //Query
             MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta
-            MessageBox.Show(consulta); //Comprobacion
+            //MessageBox.Show(consulta); //Comprobacion
             MySqlDataReader reader = comando.ExecuteReader(); //Lanza la consulta
-            exist = reader.HasRows ? true : false;
+            exist = reader.HasRows ? true : false; //Almacenara F/T dependiendo si encuentra o no coincidencia
             reader.Close();
             return exist;
         }
 
+        /// <summary>
+        /// Comprueba si el empleado a fichado a raiz de un nif pasado como parametro
+        /// </summary>
+        /// <param name="nif"></param>
+        /// <param name="conexion"></param>
+        /// <returns>Devuelve tipo bool</returns>
         static public bool ComprobarFichaje(string nif, MySqlConnection conexion)
         {
             bool exist = false; //Almacenara F/T dependiendo si encuentra o no coincidencia
             string consulta = String.Format("SELECT * FROM fichaje WHERE nif = '{0}' AND finalizar = false;", nif); //Query
             MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta
-            MessageBox.Show(consulta); //Comprobacion
+            //MessageBox.Show(consulta); //Comprobacion
             //if (BDatos.AbrirConexion()) //Abre la conexion e intenta conectar ala BBDD, si da false no lo ha conseguido
             //{
             MySqlDataReader reader = comando.ExecuteReader(); //Lanza la consulta
-            exist = reader.HasRows ? true : false;
+            exist = reader.HasRows ? true : false;//Almacenara F/T dependiendo si encuentra o no coincidencia
             reader.Close();
             //BDatos.CerrarConexion(); //Se cierra la conexión una vez realizada la consulta correctamente
             //}
@@ -59,33 +80,56 @@ namespace ControlDePresencia
             //}
             return exist;
         }
+
+        /// <summary>
+        /// Comprueba si el empleado es administrador por el nif
+        /// </summary>
+        /// <param name="nif"></param>
+        /// <param name="conexion"></param>
+        /// <returns>Devuelve tipo bool</returns>
+        static public bool ComprobarAdmin(string nif, MySqlConnection conexion)
+        {
+            bool isadmin = false; 
+            string consulta = String.Format("SELECT * FROM empleado WHERE administrador = TRUE AND nif = '{0}';",nif); //Query
+            MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta
+            //MessageBox.Show(consulta); //Comprobacion
+            MySqlDataReader reader = comando.ExecuteReader(); //Lanza la consulta
+            isadmin = reader.HasRows ? true : false;//Almacenara F/T dependiendo si encuentra o no coincidencia
+            reader.Close();
+            return isadmin;
+        }
+
+        /// <summary>
+        /// Contrasta el password pasado por parametro contra el de la base datos.
+        /// </summary>
+        /// <param name="password"></param>
+        /// <param name="conexion"></param>
+        /// <returns></returns>
+        static public bool ComprobarPassword(string password, MySqlConnection conexion)
+        {
+            bool exist = false;
+            string consulta = String.Format("SELECT * FROM empleado WHERE administrador = true AND contraseña like '{0}';" ,password); //Query
+            MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta
+            //MessageBox.Show(consulta); //Comprobacion
+            MySqlDataReader reader = comando.ExecuteReader(); //Lanza la consulta
+            exist = reader.HasRows ? true : false; //Almacenara F/T dependiendo si encuentra o no coincidencia
+            reader.Close();
+            return exist;
+        }
+        #endregion
+
+        #region Metodo Estaticos de consultas para los DataGreedView
+        /// <summary>
+        /// Obtiene, nombre,apellido y hora de entrada de los empleados que tiene el fichaje abierto.
+        /// </summary>
+        /// <param name="conexion"></param>
+        /// <returns> Devuevle un objeto de tipo BindinSource</returns>
         static public BindingSource MostrarEmpleado(MySqlConnection conexion)
         {
             BindingSource bs = new BindingSource(); ///QUE ES EXACTAMENTE?¿?¿?¿
-            string consulta  = "SELECT nombre, apellidos,horaEntrada FROM empleado INNER JOIN fichaje ON empleado.nif=fichaje.nif WHERE finalizar=FALSE";
+            string consulta = "SELECT nombre, apellidos,horaEntrada FROM empleado INNER JOIN fichaje ON empleado.nif=fichaje.nif WHERE finalizar=FALSE";
             MySqlCommand comando = new MySqlCommand(consulta, conexion);
-            MessageBox.Show(consulta);
-            MySqlDataReader reader = comando.ExecuteReader();
-            if (reader.HasRows)
-            {
-                bs.DataSource = reader;
-                reader.Close();
-            }
-            else
-            {
-                MessageBox.Show("No se han obtenido resultados");
-            }
-            return bs;         
-
-        }
-        static public BindingSource MostrarFichaje(DateTime fecha1, DateTime fecha2, MySqlConnection conexion, string nif)
-        {
-            BindingSource bs = new BindingSource(); ///QUE ES EXACTAMENTE?¿?¿?¿
-            string consulta = String.Format("SELECT horaEntrada, horaSalida, TIMESTAMPDIFF (MINUTE, horaEntrada, horaSalida) AS Duracion_Minutos " +
-                "from fichaje WHERE finalizar=true AND nif ='{2}' " +
-                "AND horaSalida BETWEEN '{0}' AND '{1}';",fecha1.ToString("yyyy-MM-dd 00:00:00"),fecha2.ToString("yyyy-MM-dd 23:59:59"),nif);           
-            MySqlCommand comando = new MySqlCommand(consulta, conexion);
-            MessageBox.Show(consulta);
+            //MessageBox.Show(consulta);//Comprobacion
             MySqlDataReader reader = comando.ExecuteReader();
             if (reader.HasRows)
             {
@@ -99,27 +143,81 @@ namespace ControlDePresencia
             return bs;
         }
 
-        static public bool ComprobarAdmin(string nif, MySqlConnection conexion)
+        /// <summary>
+        /// Obtiene toda la informacion de la tabla empelado
+        /// </summary>
+        /// <param name="conexion"></param>
+        /// <returns>Devuevle un objeto de tipo BindinSource</returns>
+        static public BindingSource MostrarTodoEmpleado(MySqlConnection conexion)
         {
-            bool isadmin = false; //Almacenara F/T dependiendo si encuentra o no coincidencia
-            string consulta = String.Format("SELECT * FROM empleado WHERE administrador = TRUE AND nif = '{0}';",nif); //Query
-            MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta
-            MessageBox.Show(consulta); //Comprobacion
-            MySqlDataReader reader = comando.ExecuteReader(); //Lanza la consulta
-            isadmin = reader.HasRows ? true : false;
-            reader.Close();
-            return isadmin;
+            BindingSource bs = new BindingSource(); ///QUE ES EXACTAMENTE?¿?¿?¿
+            string consulta = "SELECT * FROM empleado;";
+            MySqlCommand comando = new MySqlCommand(consulta, conexion);
+            //MessageBox.Show(consulta);//Comprobacion
+            MySqlDataReader reader = comando.ExecuteReader();
+            if (reader.HasRows)
+            {
+                bs.DataSource = reader;
+                reader.Close();
+            }
+            else
+            {
+                MessageBox.Show("No se han obtenido resultados");
+            }
+            return bs;
         }
-        static public bool ComprobarPassword(string password, MySqlConnection conexion)
+        /// <summary>
+        /// Obtiene, hora de entrada, salida y tiempo transcurrido entre estas de un empleado a partir de un nif
+        /// </summary>
+        /// <param name="fecha1"></param>
+        /// <param name="fecha2"></param>
+        /// <param name="conexion"></param>
+        /// <param name="nif"></param>
+        /// <returns>Devuevle un objeto de tipo BindinSource</returns>
+        static public BindingSource MostrarFichaje(DateTime fecha1, DateTime fecha2, MySqlConnection conexion, string nif)
         {
-            bool exist = false; //Almacenara F/T dependiendo si encuentra o no coincidencia
-            string consulta = String.Format("SELECT * FROM empleado WHERE administrador = true AND contraseña like '{0}';" ,password); //Query
-            MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta
-            MessageBox.Show(consulta); //Comprobacion
-            MySqlDataReader reader = comando.ExecuteReader(); //Lanza la consulta
-            exist = reader.HasRows ? true : false;
-            reader.Close();
-            return exist;
+            BindingSource bs = new BindingSource(); ///QUE ES EXACTAMENTE?¿?¿?¿
+            string consulta = String.Format("SELECT horaEntrada, horaSalida, TIMESTAMPDIFF (MINUTE, horaEntrada, horaSalida) AS Duracion_Minutos " +
+                "from fichaje WHERE finalizar=true AND nif ='{2}' " +
+                "AND horaSalida BETWEEN '{0}' AND '{1}';", fecha1.ToString("yyyy-MM-dd 00:00:00"), fecha2.ToString("yyyy-MM-dd 23:59:59"), nif);
+            MySqlCommand comando = new MySqlCommand(consulta, conexion);
+            //MessageBox.Show(consulta);//Comprobacion
+            MySqlDataReader reader = comando.ExecuteReader();
+            if (reader.HasRows)
+            {
+                bs.DataSource = reader;
+                reader.Close();
+            }
+            else
+            {
+                MessageBox.Show("No se han obtenido resultados");
+            }
+            return bs;
         }
+
+        /// <summary>
+        /// Obtiene todos los datos de la tabla Fichaje
+        /// </summary>
+        /// <param name="conexion"></param>
+        /// <returns>Devuevle un objeto de tipo BindinSource</returns>
+        static public BindingSource MostrarFichaje(MySqlConnection conexion)
+        {
+            BindingSource bs = new BindingSource(); ///QUE ES EXACTAMENTE?¿?¿?¿
+            string consulta = String.Format("SELECT * FROM fichaje;");
+            MySqlCommand comando = new MySqlCommand(consulta, conexion);
+            //MessageBox.Show(consulta);//Comprobacion
+            MySqlDataReader reader = comando.ExecuteReader();
+            if (reader.HasRows)
+            {
+                bs.DataSource = reader;
+                reader.Close();
+            }
+            else
+            {
+                MessageBox.Show("No se han obtenido resultados");
+            }
+            return bs;
         }
+        #endregion
+    }
 }

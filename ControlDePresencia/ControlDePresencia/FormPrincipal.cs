@@ -1,4 +1,5 @@
-﻿using ControlDePresencia.ControlDePresencia.biz;
+﻿#region Usings
+using ControlDePresencia.ControlDePresencia.biz;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+#endregion
 
 namespace ControlDePresencia
 {
@@ -33,40 +35,48 @@ namespace ControlDePresencia
 
         private void lblEntrada_Click(object sender, EventArgs e)
         {
-            string nif = txtDni.Text;
+            //Comprueba si el txt box del dni esta vacio
+            if (txtDni.Text == "")
+            {
+                MessageBox.Show("El campo del DNI no puede estar vacio");
+                return;
+            }
+            string nif = txtDni.Text.ToUpper();
             try
             {
+                //Abre la conexion
                 if (BDatos.AbrirConexion())
                 {
+                    //Comprueba si la letra del DNI es correcta
                     if (LibreriaMetodos.ComprobarLetra(nif))
                     {
-                        MessageBox.Show("Coincide la letra"); //Comprobacion
+                    //MessageBox.Show("Coincide la letra"); //Comprobacion
+                    }
+                    else { MessageBox.Show("La letra no coincide"); return; }
 
-                        if (LibreriaMetodos.ComprobarEmpleado(nif, conexion))
+                    //Comprueba si el empleado existe
+                    if (LibreriaMetodos.ComprobarEmpleado(nif, conexion))
+                    {
+                        //MessageBox.Show("Si que se obtuvo coincidencia en empleados"); //Comprobacion
+                    }
+                    else { MessageBox.Show("El empleado no existe"); return; }
+
+
+                    if (LibreriaMetodos.ComprobarFichaje(nif, conexion))
+                    {
+                        MessageBox.Show("Si obtuvo coincidencia en fichajes");
+                        return;
+                    }
+                    else
+                    {
+                    //Si el empleado no ha fichado, le da de alta en fichaje
+                        Fichaje fichaje = new Fichaje(nif, DateTime.Now, DateTime.MinValue,false);
+                        if (fichaje.DarAlta(conexion))
                         {
-                            MessageBox.Show("Si que se obtuvo coincidencia en empleados"); //Comprobacion
-
-                            if (LibreriaMetodos.ComprobarFichaje(nif, conexion))
-                            {
-                                //No hace nada
-                                MessageBox.Show("Si obtuvo coincidencia en fichajes");
-                            }
-                            else
-                            {
-                                //Dar de alta en fichaje
-                                MessageBox.Show("No obtuvo coincidencia en fichajes");
-                                Fichaje fichaje = new Fichaje(nif, DateTime.Now, DateTime.MinValue,false);
-                                if (fichaje.DarAlta(conexion))
-                                {
-                                    MessageBox.Show("Se ha dado de alta");
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Fallo al dar de alta");
-                                }
-                            }
-                        } else MessageBox.Show("El empleado no existe");
-                    } else MessageBox.Show("La letra no coincide");
+                            MessageBox.Show(String.Format("Se ha dado entrada al empleado a fecha {0}", DateTime.Now));
+                        }
+                        else { /*MessageBox.Show("Fallo al dar de alta") //Comprobacion*/;return; }
+                    }
                 }
                 else
                 {
@@ -80,48 +90,56 @@ namespace ControlDePresencia
             finally
             {
                 BDatos.CerrarConexion();
-            }
-            //if (LibreriaMetodos.ComprobarLetra(nif)) MessageBox.Show("Coincide la letra"); //Comprobacion
-            //if (LibreriaMetodos.ComprobarEmpleado(nif)) MessageBox.Show("Si que se obtuvo coincidencia"); //Comprobacion
+            }            
         }
 
         private void btnSalida_Click(object sender, EventArgs e)
         {
-            string nif = txtDni.Text;
+            //Comprueba que el campo txt no esté vacio
+            if (txtDni.Text == "")
+            {
+                MessageBox.Show("El campo del DNI no puede estar vacio");
+                return;
+            }
+            string nif = txtDni.Text.ToUpper();
             try
             {
+                //Abre la conexión
                 if (BDatos.AbrirConexion())
                 {
+                    //Comprueba si la letra del DNI es correcta
                     if (LibreriaMetodos.ComprobarLetra(nif))
                     {
-                        MessageBox.Show("Coincide la letra"); //Comprobacion
-
-                        if (LibreriaMetodos.ComprobarEmpleado(nif, conexion))
-                        {
-                            MessageBox.Show("Si que se obtuvo coincidencia en empleados"); //Comprobacion
-
-                            if (LibreriaMetodos.ComprobarFichaje(nif, conexion))
-                            {
-                                //Si hay coincidencia, da salida
-                                Fichaje fichaje = new Fichaje();
-                                if(fichaje.DarSalida(conexion, nif))
-                                {
-                                    MessageBox.Show("Se ha dado salida");
-                                }
-                                else
-                                {
-                                    MessageBox.Show("No se  ha dado salida");
-                                }
-                            }else MessageBox.Show("No hay coincidencia de fichaje");
-                        }
-                        else MessageBox.Show("El empleado no existe");
+                        //MessageBox.Show("Coincide la letra"); //Comprobacion
                     }
-                    else MessageBox.Show("La letra no coincide");
+                    else { MessageBox.Show("La letra no coincide"); return; }
+
+                    //Comprueba si el empleado existe
+                    if (LibreriaMetodos.ComprobarEmpleado(nif, conexion))
+                    {
+                        //MessageBox.Show("Si que se obtuvo coincidencia en empleados"); //Comprobacion
+                    }
+                    else { MessageBox.Show("El empleado no existe"); return; }
+
+                    //Comprueba si el empleado ha fichado previamente
+                    if (LibreriaMetodos.ComprobarFichaje(nif, conexion))
+                    {
+                        //MessageBox.Show("Si que hay fichaje previo");//Comprobacion
+                    }
+                    else { MessageBox.Show("El empleado no ha fichado") ;return; }
+
+                    //Si hay fichaje previo, lo finaliza
+                    Fichaje fichaje = new Fichaje();
+                    if (fichaje.DarSalida(conexion, nif))
+                    {
+                        MessageBox.Show(String.Format("Se ha dado salida al empleado a fecha {0}",DateTime.Now));
+                    }
+                    else {/*MessageBox.Show("No se  ha dado salida")//Comprobacion*/; return; }
                 }
                 else
                 {
-                    MessageBox.Show("No hay conexion");
-                };
+                    MessageBox.Show("No se ha establecido la conexión","Error");
+                }
             }
             catch (MySqlException ex)
             {
@@ -131,7 +149,6 @@ namespace ControlDePresencia
             {
                 BDatos.CerrarConexion();
             }
-
         }
 
         private void btnPresencia_Click(object sender, EventArgs e)
@@ -155,29 +172,33 @@ namespace ControlDePresencia
 
         private void btnPermanencia_Click(object sender, EventArgs e)
         {
-            string nif = txtDni.Text;
+            if (txtDni.Text == "")
+            {
+                MessageBox.Show("El campo del DNI no puede estar vacio");
+                return;
+            }
+            string nif = txtDni.Text.ToUpper();
             try
             {
                 if (BDatos.AbrirConexion())
                 {
                     if (LibreriaMetodos.ComprobarLetra(nif))
                     {
-                        MessageBox.Show("Coincide la letra"); //Comprobacion
-
-                        if (LibreriaMetodos.ComprobarEmpleado(nif, conexion))
-                        {
-                            MessageBox.Show("Si que se obtuvo coincidencia en empleados"); //Comprobacion  
-                            FrmPermanencia permanencia = new FrmPermanencia(nif);// Si todo es ok abre el formulario                            
-                            permanencia.ShowDialog();
-                        }
-                        else MessageBox.Show("El empleado no existe");
+                        //MessageBox.Show("Coincide la letra"); //Comprobacion
                     }
-                    else MessageBox.Show("La letra no coincide");
+                    else { MessageBox.Show("La letra del DNI no coincide"); return; };
+
+                    if (LibreriaMetodos.ComprobarEmpleado(nif, conexion))
+                    {
+                    //MessageBox.Show("Si que se obtuvo coincidencia en empleados"); //Comprobacion  
+                    FrmPermanencia permanencia = new FrmPermanencia(nif);// Si todo es ok abre el formulario                            
+                    permanencia.ShowDialog();
+                    } //else MessageBox.Show("El empleado no existe");//Comprobacion  
                 }
                 else
                 {
-                    MessageBox.Show("No hay conexion");
-                };
+                    MessageBox.Show("No se ha establecido la conexión", "Error");
+                }
             }
             catch (MySqlException ex)
             {
@@ -192,7 +213,12 @@ namespace ControlDePresencia
 
         private void btnMantenimiento_Click(object sender, EventArgs e)
         {
-            string nif = txtDni.Text;
+            if (txtDni.Text == "")
+            {
+                MessageBox.Show("El campo del DNI no puede estar vacio");
+                return;
+            }
+            string nif = txtDni.Text.ToUpper();
             try
             {
                 if (BDatos.AbrirConexion())
@@ -211,8 +237,9 @@ namespace ControlDePresencia
                                 mantenimiento.ShowDialog();
                                 string contraseña = mantenimiento.Contraseña;
                                     if (LibreriaMetodos.ComprobarPassword(contraseña, conexion))
-                                    {
-                                        FormMantenimiento manteni = new FormMantenimiento();
+                                    {    
+                                        
+                                        FormMantenimiento manteni = new FormMantenimiento();                                   
                                         manteni.ShowDialog();
                                     }
                                     else
@@ -240,6 +267,11 @@ namespace ControlDePresencia
                 BDatos.CerrarConexion();
             }
 
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }
