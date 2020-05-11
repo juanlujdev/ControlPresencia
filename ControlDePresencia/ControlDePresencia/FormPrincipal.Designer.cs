@@ -79,6 +79,7 @@
             this.btnMantenimiento.TabIndex = 5;
             this.btnMantenimiento.Text = "Mantenimiento";
             this.btnMantenimiento.UseVisualStyleBackColor = true;
+            this.btnMantenimiento.Click += new System.EventHandler(this.btnMantenimiento_Click);
             // 
             // txtDni
             // 
@@ -123,7 +124,7 @@
             this.Controls.Add(this.btnSalida);
             this.Controls.Add(this.lblEntrada);
             this.Name = "FormPrincipal";
-            this.Text = "FormPrincipal";
+            this.Text = "Control De Presencia";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

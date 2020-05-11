@@ -15,8 +15,9 @@ horaEntrada DATETIME NOT NULL,
 horaSalida DATETIME NOT NULL,
 finalizar TINYINT(1));
 ##Se elimina la primary key , para poder repetir el nif. (Se podria añadir una primary autoincrement  si fuera necesario)
-
 alter table fichaje ADD CONSTRAINT fk_1 FOREIGN KEY (nif) REFERENCES empleado (nif);
+
+#DATOS DE PRUEBA
 INSERT INTO empleado (`alta`,`nif`,`nombre`,`apellidos`,`administrador`,`contraseña`) VALUES (TRUE,'11111111H','Juan','Marques',TRUE,'1dam');
 INSERT INTO empleado (alta,nif,nombre,apellidos,administrador,contraseña) VALUES (TRUE,'22585431y','Antonio','Carmona',FALSE,NULL);
 INSERT INTO empleado (alta,nif,nombre,apellidos,administrador,contraseña) VALUES (TRUE,'22585111y','Carlos','Aparicio',FALSE,NULL);
@@ -35,4 +36,5 @@ SELECT COUNT(*) FROM fichaje WHERE nif = '33563572V';
 
 SELECT horaEntrada, horaSalida,   horaSalida - horaEntrada AS duracion FROM fichaje WHERE finalizar=TRUE AND nif ="22585111y";
 SELECT horaEntrada, horaSalida, DATEDIFF ( horaEntrada, horaSalida) AS duracion FROM fichaje WHERE finalizar=TRUE AND nif ="22585111y";
-SELECT horaEntrada, horaSalida, TIMESTAMPDIFF (MINUTE,horaEntrada,horaSalida) AS Duracion_Minutos from fichaje WHERE finalizar=TRUE AND nif ="22585111y";
+SELECT horaEntrada, horaSalida, TIMESTAMPDIFF (MINUTE, horaEntrada, horaSalida) AS Duracion_Minutos from fichaje 
+WHERE finalizar=true AND nif ='33563572V' AND horaSalida BETWEEN '2020-05-10 00:00:00' AND '2020-05-11 23:59:59';

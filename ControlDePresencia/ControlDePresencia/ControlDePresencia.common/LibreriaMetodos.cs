@@ -98,5 +98,17 @@ namespace ControlDePresencia
             }
             return bs;
         }
+
+        static public bool ComprobarAdmin(string nif, MySqlConnection conexion)
+        {
+            bool isadmin = false; //Almacenara F/T dependiendo si encuentra o no coincidencia
+            string consulta = String.Format("SELECT * FROM empleado WHERE administrador = TRUE;"); //Query
+            MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta
+            MessageBox.Show(consulta); //Comprobacion
+            MySqlDataReader reader = comando.ExecuteReader(); //Lanza la consulta
+            isadmin = reader.HasRows ? true : false;
+            reader.Close();
+            return isadmin;
+        }
     }
 }
