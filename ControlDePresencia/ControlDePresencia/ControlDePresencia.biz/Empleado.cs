@@ -22,5 +22,14 @@ namespace ControlDePresencia.ControlDePresencia.biz
         public bool Administrador { get { return administrador; } set { administrador = value; } }
         public string Contraseña { get { return contraseña; } set { contraseña = value; } }
 
+        public Empleado()
+        {
+
+        }
+
+        public void EliminarEmpleado()
+        {
+
+        }
     }
 }
