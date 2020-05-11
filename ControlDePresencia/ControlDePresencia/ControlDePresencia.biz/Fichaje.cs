@@ -30,7 +30,6 @@ namespace ControlDePresencia.ControlDePresencia.biz
             horaEntrada = hE;
             horaSalida = hS;
             finalizar = f;
-            //salida = s;
         }
         public bool DarAlta(MySqlConnection conexion)
         {

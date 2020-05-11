@@ -102,7 +102,7 @@ namespace ControlDePresencia
         static public bool ComprobarAdmin(string nif, MySqlConnection conexion)
         {
             bool isadmin = false; //Almacenara F/T dependiendo si encuentra o no coincidencia
-            string consulta = String.Format("SELECT * FROM empleado WHERE administrador = TRUE;"); //Query
+            string consulta = String.Format("SELECT * FROM empleado WHERE administrador = TRUE AND nif = '{0}';",nif); //Query
             MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta
             MessageBox.Show(consulta); //Comprobacion
             MySqlDataReader reader = comando.ExecuteReader(); //Lanza la consulta

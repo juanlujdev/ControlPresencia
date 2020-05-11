@@ -209,7 +209,8 @@ namespace ControlDePresencia
                             {
                                 MessageBox.Show("Si que es admin"); //Comprobacion 
                                 //Continuar aquí con la comprobacion del pass
-                            }                
+                            }
+                            else MessageBox.Show("No es admin");
                         }
                         else MessageBox.Show("El empleado no existe");
                     }

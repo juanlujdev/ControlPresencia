@@ -40,10 +40,21 @@ namespace ControlDePresencia
 
         private void btnSalida_Click(object sender, EventArgs e)
         {
-            this.nif = lblNif.Text;
-            this.nombre = lblNombre.Text;
-            this.apellidos = lblApellido.Text;
-            this.contraseña = lblContraseña.Text;
+            this.nif = txtNif.Text;
+            this.nombre = txtNombre.Text;
+            this.apellidos = txtApellido.Text;
+            this.alta = cbxAlta.Checked ? true : false;
+            if (cbxAdministrador.Checked)
+            {
+                this.administrador = true;
+                if (txtContraseña.Text == "") MessageBox.Show("Es necesaria una contraseña");
+            }
+            else
+            {
+                this.administrador = false;
+                txtContraseña.Text = null;
+            }
+            this.Close();
         }
 
         private void FormDatos_Load(object sender, EventArgs e)

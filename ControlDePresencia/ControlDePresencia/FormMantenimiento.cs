@@ -20,6 +20,14 @@ namespace ControlDePresencia
         private void btnAgregarEmpleado_Click(object sender, EventArgs e)
         {
             FormDatos formDatos = new FormDatos();
+            string nif = formDatos.Nif;
+            string nombre = formDatos.Nombre;
+            string apellidos = formDatos.Apellidos;
+            bool alta = formDatos.Alta;
+            bool administrador = formDatos.Administrador;
+            string contraseña = formDatos.Contraseña;
+
+
         }
     }
 }
