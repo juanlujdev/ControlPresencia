@@ -209,8 +209,25 @@ namespace ControlDePresencia
                             {
                                 MessageBox.Show("Si que es admin"); //Comprobacion 
                                 //Continuar aquí con la comprobacion del pass
+<<<<<<< HEAD
                             }
                             else MessageBox.Show("No es admin");
+=======
+                                FrmContraseñaMantenimiento mantenimiento = new FrmContraseñaMantenimiento();
+                                mantenimiento.ShowDialog();
+                                string contraseña=mantenimiento.Contraseña;
+                                if (LibreriaMetodos.ComprobarPassword(contraseña, conexion))
+                                {
+                                    FormMantenimiento manteni = new FormMantenimiento();
+                                    manteni.ShowDialog();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Contraseña Erronea");
+                                }
+
+                            }                
+>>>>>>> 0c5236eee08000d09a6c126f93c2e3e0fef8bffa
                         }
                         else MessageBox.Show("El empleado no existe");
                     }

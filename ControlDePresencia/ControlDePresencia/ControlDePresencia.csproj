@@ -121,6 +121,12 @@
     <Compile Include="FormPresencia.Designer.cs">
       <DependentUpon>FormPresencia.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmContraseñaMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmContraseñaMantenimiento.designer.cs">
+      <DependentUpon>FrmContraseñaMantenimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPermanencia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPresencia.resx">
       <DependentUpon>FormPresencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmContraseñaMantenimiento.resx">
+      <DependentUpon>FrmContraseñaMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPermanencia.resx">
       <DependentUpon>FrmPermanencia.cs</DependentUpon>
