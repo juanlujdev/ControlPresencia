@@ -127,7 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(333, 418);
+            this.ClientSize = new System.Drawing.Size(325, 395);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblReloj);
             this.Controls.Add(this.txtDni);

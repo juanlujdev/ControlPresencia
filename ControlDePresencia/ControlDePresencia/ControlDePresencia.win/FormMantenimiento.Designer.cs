@@ -34,6 +34,7 @@
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
             this.dgvFichajes = new System.Windows.Forms.DataGridView();
             this.btnSalida = new System.Windows.Forms.Button();
+            this.txtCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFichajes)).BeginInit();
             this.SuspendLayout();
@@ -99,15 +100,27 @@
             this.btnSalida.Name = "btnSalida";
             this.btnSalida.Size = new System.Drawing.Size(91, 64);
             this.btnSalida.TabIndex = 7;
-            this.btnSalida.Text = "Salir";
+            this.btnSalida.Text = "Volver";
             this.btnSalida.UseVisualStyleBackColor = true;
             this.btnSalida.Click += new System.EventHandler(this.btnSalida_Click);
+            // 
+            // txtCerrar
+            // 
+            this.txtCerrar.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCerrar.Location = new System.Drawing.Point(526, 304);
+            this.txtCerrar.Name = "txtCerrar";
+            this.txtCerrar.Size = new System.Drawing.Size(91, 64);
+            this.txtCerrar.TabIndex = 8;
+            this.txtCerrar.Text = "Cerrar Aplicacion";
+            this.txtCerrar.UseVisualStyleBackColor = true;
+            this.txtCerrar.Click += new System.EventHandler(this.txtCerrar_Click);
             // 
             // FormMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 453);
+            this.Controls.Add(this.txtCerrar);
             this.Controls.Add(this.btnSalida);
             this.Controls.Add(this.dgvFichajes);
             this.Controls.Add(this.dgvEmpleados);
@@ -131,5 +144,6 @@
         private System.Windows.Forms.DataGridView dgvEmpleados;
         private System.Windows.Forms.DataGridView dgvFichajes;
         private System.Windows.Forms.Button btnSalida;
+        private System.Windows.Forms.Button txtCerrar;
     }
 }

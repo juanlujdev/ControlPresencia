@@ -142,6 +142,11 @@ namespace ControlDePresencia
             string nif = dgvFichajes.Rows[n].Cells[0].Value.ToString(); //Saca el nif del cell
             CargarDgvFichaje(nif);
         }
+
+        private void txtCerrar_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0); //Sale de la aplicación , se aplica el valor 0 como que es una salida sin error.
+        }
     }
     #endregion
 }
