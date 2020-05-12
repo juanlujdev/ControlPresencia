@@ -71,6 +71,7 @@
             this.btnEliminarEmpleado.TabIndex = 3;
             this.btnEliminarEmpleado.Text = "Eliminar Empleado";
             this.btnEliminarEmpleado.UseVisualStyleBackColor = true;
+            this.btnEliminarEmpleado.Click += new System.EventHandler(this.btnEliminarEmpleado_Click);
             // 
             // dgvEmpleados
             // 
@@ -120,6 +121,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 453);
+            this.ControlBox = false;
             this.Controls.Add(this.txtCerrar);
             this.Controls.Add(this.btnSalida);
             this.Controls.Add(this.dgvFichajes);

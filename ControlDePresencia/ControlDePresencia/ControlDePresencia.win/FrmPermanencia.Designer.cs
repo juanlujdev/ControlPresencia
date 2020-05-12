@@ -133,6 +133,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 446);
+            this.ControlBox = false;
             this.Controls.Add(this.lblMostrarDni);
             this.Controls.Add(this.lblDni);
             this.Controls.Add(this.btnCerrar);
@@ -143,7 +144,7 @@
             this.Controls.Add(this.dtpFecha2);
             this.Controls.Add(this.dtpFecha1);
             this.Name = "FrmPermanencia";
-            this.Text = "FrmPermanencia";
+            this.Text = "Ventana Permanencia";
             this.Load += new System.EventHandler(this.FrmPermanencia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermanencia)).EndInit();
             this.ResumeLayout(false);

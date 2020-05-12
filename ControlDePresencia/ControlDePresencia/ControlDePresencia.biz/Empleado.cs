@@ -46,9 +46,16 @@ namespace ControlDePresencia.ControlDePresencia.biz
         #endregion
 
         #region Metodos de interfaz
-        public void EliminarEmpleado()
+        public bool EliminarEmpleado(MySqlConnection conexion ,string nif)
         {
-
+            bool exist = false; //Almacenara F/T dependiendo si encuentra o no coincidencia
+            string consulta = String.Format("UPDATE empleado SET alta=FALSE WHERE nif = '{0}';", nif); //Query
+            MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta
+            MessageBox.Show(consulta); //Comprobacion
+            MySqlDataReader reader = comando.ExecuteReader(); //Lanza la consulta
+            exist = reader.HasRows ? true : false;
+            reader.Close();
+            return exist;
         }
 
         /// <summary>

@@ -51,7 +51,7 @@ namespace ControlDePresencia
                     //Comprueba si la letra del DNI es correcta
                     if (!LibreriaMetodos.ComprobarLetra(nif))
                     {
-                        MessageBox.Show("La letra no coincide"); return;
+                        MessageBox.Show("NIF incorrecto"); return;
                     }
 
                     //Comprueba si el empleado existe
@@ -105,7 +105,7 @@ namespace ControlDePresencia
                 {
                     if (!LibreriaMetodos.ComprobarLetra(nif))
                     {
-                        MessageBox.Show("La letra no coincide"); return;
+                        MessageBox.Show("NIF incorrecto"); return;
                     }
 
                     if (!LibreriaMetodos.ComprobarEmpleado(nif, conexion))
@@ -176,7 +176,7 @@ namespace ControlDePresencia
                 {
                     if (!LibreriaMetodos.ComprobarLetra(nif))
                     {
-                        MessageBox.Show("La letra no coincide"); return;
+                        MessageBox.Show("NIF incorrecto"); return;
                     }
 
                     if (LibreriaMetodos.ComprobarEmpleado(nif, conexion))
@@ -184,6 +184,7 @@ namespace ControlDePresencia
                     FrmPermanencia permanencia = new FrmPermanencia(nif);// Si todo es ok abre el formulario                            
                     permanencia.ShowDialog();
                     }
+                    else { MessageBox.Show("No existe el empleado"); return; }
                 }
                 else
                 {
@@ -207,14 +208,14 @@ namespace ControlDePresencia
                 MessageBox.Show("El campo del DNI no puede estar vacio");
                 return;
             }
-            string nif = txtDni.Text.ToUpper();
+            string nif = txtDni.Text.ToUpper();          
             try
             {
                 if (BDatos.AbrirConexion())
                 {
                     if (!LibreriaMetodos.ComprobarLetra(nif))
                     {
-                        MessageBox.Show("La letra no coincide"); return;
+                        MessageBox.Show("NIF incorrecto"); return;
                     }
                     
                     if (!LibreriaMetodos.ComprobarEmpleado(nif, conexion))
@@ -230,6 +231,7 @@ namespace ControlDePresencia
                     FrmContraseñaMantenimiento mantenimiento = new FrmContraseñaMantenimiento();
                     mantenimiento.ShowDialog();
                     string contraseña = mantenimiento.Contraseña;
+                    if (!mantenimiento.Ok) return; //La validacion del formulario de la contraseña no esta correcta y corta.
                     //Si la contraseña es correcta abre el formulario de mantenimiento
                     if (LibreriaMetodos.ComprobarPassword(contraseña, conexion))
                     {                              
@@ -262,5 +264,10 @@ namespace ControlDePresencia
             this.Dispose();
         }
         #endregion
+
+        private void lblReloj_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

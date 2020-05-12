@@ -147,6 +147,43 @@ namespace ControlDePresencia
         {
             Environment.Exit(0); //Sale de la aplicación , se aplica el valor 0 como que es una salida sin error.
         }
+
+        private void btnEliminarEmpleado_Click(object sender, EventArgs e)
+        {
+            FormEliminarEmpleado eliminar = new FormEliminarEmpleado();
+            eliminar.ShowDialog();
+            string nif = eliminar.Nif;
+            try
+            {
+                if (BDatos.AbrirConexion())
+                {
+                    if (!LibreriaMetodos.ComprobarEmpleado(nif, conexion))
+                    {
+                        MessageBox.Show("El empleado no existe"); return;
+                    }
+                    //Pregunta si realmente quiere eliminar el empleado                
+                    if (MessageBox.Show("Estas seguro que quieres eliminar este empleado?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                       //Pasa a false el atributo alta.
+                       Empleado elimin = new Empleado();
+                       elimin.EliminarEmpleado(conexion, nif);
+                       MessageBox.Show(String.Format("Se ha eliminado el empleado con NIF: {0}", nif));
+                    }                   
+                }
+                else
+                {
+                    MessageBox.Show("No se ha establecido la conexión", "Error");
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
+            }
+            finally
+            {
+                BDatos.CerrarConexion();
+            }
+        }
     }
     #endregion
 }

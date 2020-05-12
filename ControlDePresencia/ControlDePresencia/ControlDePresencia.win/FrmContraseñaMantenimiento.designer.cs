@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnAcceder = new System.Windows.Forms.Button();
+            this.errPCnt = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errPCnt)).BeginInit();
             this.SuspendLayout();
             // 
             // txtContraseña
@@ -64,17 +67,23 @@
             this.btnAcceder.UseVisualStyleBackColor = true;
             this.btnAcceder.Click += new System.EventHandler(this.btnAcceder_Click);
             // 
+            // errPCnt
+            // 
+            this.errPCnt.ContainerControl = this;
+            // 
             // FrmContraseñaMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(351, 156);
+            this.ControlBox = false;
             this.Controls.Add(this.btnAcceder);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.txtContraseña);
             this.Name = "FrmContraseñaMantenimiento";
-            this.Text = "FrmDniMantenimiento";
+            this.Text = "Datos";
             this.Load += new System.EventHandler(this.FrmContraseñaMantenimiento_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errPCnt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -85,5 +94,6 @@
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnAcceder;
+        private System.Windows.Forms.ErrorProvider errPCnt;
     }
 }

@@ -58,10 +58,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(471, 373);
+            this.ControlBox = false;
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dgvListado);
             this.Name = "FormPresencia";
-            this.Text = "FormPresencia";
+            this.Text = "Ventana Presencia";
             this.Load += new System.EventHandler(this.FormPresencia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).EndInit();
             this.ResumeLayout(false);

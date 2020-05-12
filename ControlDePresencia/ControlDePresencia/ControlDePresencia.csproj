@@ -97,6 +97,12 @@
     <Compile Include="ControlDePresencia.biz\Empleado.cs" />
     <Compile Include="ControlDePresencia.common\LibreriaMetodos.cs" />
     <Compile Include="ControlDePresencia.data\BDatos.cs" />
+    <Compile Include="ControlDePresencia.win\FormEliminarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlDePresencia.win\FormEliminarEmpleado.designer.cs">
+      <DependentUpon>FormEliminarEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlDePresencia.win\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ControlDePresencia.win\FormDatos.resx">
       <DependentUpon>FormDatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlDePresencia.win\FormEliminarEmpleado.resx">
+      <DependentUpon>FormEliminarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlDePresencia.win\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
