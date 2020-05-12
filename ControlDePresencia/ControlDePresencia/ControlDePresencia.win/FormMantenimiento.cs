@@ -94,7 +94,7 @@ namespace ControlDePresencia
             {
                 if (BDatos.AbrirConexion())
                 {
-                    if (!ok) return; //Si ok es false no hace nada
+                    if (!ok) return; //Si ok es false no hace nada, porque la validacion del form de datos no es correcta
 
                     Empleado empleado = new Empleado(alta, nif, nombre, apellidos, administrador, contraseña);
 
@@ -112,7 +112,7 @@ namespace ControlDePresencia
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
 
             }
             finally

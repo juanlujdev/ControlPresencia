@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnSalida = new System.Windows.Forms.Button();
             this.btnPresencia = new System.Windows.Forms.Button();
             this.btnPermanencia = new System.Windows.Forms.Button();
@@ -35,6 +36,8 @@
             this.txtDni = new System.Windows.Forms.TextBox();
             this.lblReloj = new System.Windows.Forms.Label();
             this.lblEntrada = new System.Windows.Forms.Button();
+            this.errPrincpial = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errPrincpial)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalida
@@ -112,6 +115,11 @@
             this.lblEntrada.UseVisualStyleBackColor = true;
             this.lblEntrada.Click += new System.EventHandler(this.lblEntrada_Click);
             // 
+            // errPrincpial
+            // 
+            this.errPrincpial.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errPrincpial.ContainerControl = this;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,6 +136,7 @@
             this.Name = "FormPrincipal";
             this.Text = "Control De Presencia";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errPrincpial)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,6 +150,7 @@
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.Label lblReloj;
         private System.Windows.Forms.Button lblEntrada;
+        private System.Windows.Forms.ErrorProvider errPrincpial;
     }
 }
 
