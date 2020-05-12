@@ -13,8 +13,32 @@ namespace ControlDePresencia
 {
     public partial class FormEliminarEmpleado : Form
     {
+        #region Atributos
         private string nif;
+        private bool ok;
+        #endregion
+        #region Propiedades
         public string Nif { get { return nif; } }
+        public bool Ok { get { return ok; } }
+        #endregion
+
+        #region Validacion
+        private bool ValidarDatos()
+        {
+            string Dni = txtDni.Text;
+            bool ok = true;
+            if ((txtDni.Text == "") || (txtDni.Text.Length < 9 || txtDni.Text.Length > 9))
+            {
+                ok = false;
+                errorPrDni.SetError(txtDni,"Ingresa el Dni o introduce un DNI correcto");
+            }
+            else
+            {
+                errorPrDni.SetError(txtDni, "");
+            }
+            return ok;
+        }
+        #endregion
 
         public FormEliminarEmpleado()
         {
@@ -23,11 +47,14 @@ namespace ControlDePresencia
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            
             this.Close();
         }
 
         private void btnComprobar_Click(object sender, EventArgs e)
         {
+            if (!ValidarDatos()) return;
+            this.ok = true;
             this.nif = txtDni.Text;
             this.Close();
         }

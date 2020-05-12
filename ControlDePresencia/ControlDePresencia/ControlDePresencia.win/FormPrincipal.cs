@@ -23,14 +23,9 @@ namespace ControlDePresencia
             InitializeComponent();
         }
 
-        private void tmrReloj_Tick(object sender, EventArgs e)
-        {
-            lblReloj.Text = DateTime.Now.ToString("HH:mm:ss");
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            lblReloj.Text = DateTime.Now.ToString("HH:mm:ss");
+          
         }
 
         #region Manejadores
@@ -268,6 +263,11 @@ namespace ControlDePresencia
         private void lblReloj_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void tmrReloj_Tick_1(object sender, EventArgs e)
+        {
+            lblReloj.Text = DateTime.Now.ToLongTimeString();
         }
     }
 }

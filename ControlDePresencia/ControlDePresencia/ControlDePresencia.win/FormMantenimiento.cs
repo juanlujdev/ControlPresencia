@@ -152,6 +152,8 @@ namespace ControlDePresencia
         {
             FormEliminarEmpleado eliminar = new FormEliminarEmpleado();
             eliminar.ShowDialog();
+            if (!eliminar.Ok) return;
+            
             string nif = eliminar.Nif;
             try
             {
