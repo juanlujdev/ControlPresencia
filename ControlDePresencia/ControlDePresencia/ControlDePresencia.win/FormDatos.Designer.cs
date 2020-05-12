@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
@@ -39,6 +40,9 @@
             this.cbxAdministrador = new System.Windows.Forms.CheckBox();
             this.lblNif = new System.Windows.Forms.Label();
             this.txtNif = new System.Windows.Forms.TextBox();
+            this.errpDatos = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnSalir = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.errpDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -130,6 +134,8 @@
             this.cbxAdministrador.TabIndex = 23;
             this.cbxAdministrador.Text = "Administrador";
             this.cbxAdministrador.UseVisualStyleBackColor = true;
+            this.cbxAdministrador.CheckedChanged += new System.EventHandler(this.cbxAdministrador_CheckedChanged);
+            this.cbxAdministrador.CheckStateChanged += new System.EventHandler(this.cbxAdministrador_CheckStateChanged);
             // 
             // lblNif
             // 
@@ -150,11 +156,29 @@
             this.txtNif.Size = new System.Drawing.Size(157, 24);
             this.txtNif.TabIndex = 24;
             // 
+            // errpDatos
+            // 
+            this.errpDatos.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errpDatos.ContainerControl = this;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Location = new System.Drawing.Point(372, 109);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(67, 28);
+            this.btnSalir.TabIndex = 26;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // FormDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(463, 163);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblNif);
             this.Controls.Add(this.txtNif);
             this.Controls.Add(this.cbxAdministrador);
@@ -167,8 +191,10 @@
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.txtNombre);
             this.Name = "FormDatos";
+            this.ShowIcon = false;
             this.Text = "Datos";
             this.Load += new System.EventHandler(this.FormDatos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errpDatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,5 +213,7 @@
         private System.Windows.Forms.CheckBox cbxAdministrador;
         private System.Windows.Forms.Label lblNif;
         private System.Windows.Forms.TextBox txtNif;
+        private System.Windows.Forms.ErrorProvider errpDatos;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

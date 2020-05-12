@@ -81,8 +81,9 @@
             this.dgvPermanencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPermanencia.Location = new System.Drawing.Point(47, 105);
             this.dgvPermanencia.Name = "dgvPermanencia";
-            this.dgvPermanencia.Size = new System.Drawing.Size(431, 258);
+            this.dgvPermanencia.Size = new System.Drawing.Size(440, 249);
             this.dgvPermanencia.TabIndex = 4;
+            this.dgvPermanencia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPermanencia_CellClick);
             this.dgvPermanencia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPermanencia_CellContentClick);
             // 
             // btnConsultar

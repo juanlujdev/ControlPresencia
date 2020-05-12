@@ -1,4 +1,5 @@
-﻿using System;
+﻿#region Usings
+using System;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,11 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+#endregion
 
 namespace ControlDePresencia
 {
     public partial class FrmContraseñaMantenimiento : Form
     {
+        //Atributos y propiedades para traernos la informacion entre formularios
         private string contraseña;
         public string Contraseña { get { return contraseña; } }
 
@@ -30,7 +33,6 @@ namespace ControlDePresencia
         {
             this.contraseña = txtContraseña.Text;
             this.Close();
-
         }
 
         private void FrmContraseñaMantenimiento_Load(object sender, EventArgs e)

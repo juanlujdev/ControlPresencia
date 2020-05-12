@@ -97,60 +97,60 @@
     <Compile Include="ControlDePresencia.biz\Empleado.cs" />
     <Compile Include="ControlDePresencia.common\LibreriaMetodos.cs" />
     <Compile Include="ControlDePresencia.data\BDatos.cs" />
-    <Compile Include="FormPrincipal.cs">
+    <Compile Include="ControlDePresencia.win\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPrincipal.Designer.cs">
+    <Compile Include="ControlDePresencia.win\FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMantenimiento.cs">
+    <Compile Include="ControlDePresencia.win\FormMantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMantenimiento.Designer.cs">
+    <Compile Include="ControlDePresencia.win\FormMantenimiento.Designer.cs">
       <DependentUpon>FormMantenimiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDatos.cs">
+    <Compile Include="ControlDePresencia.win\FormDatos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDatos.Designer.cs">
+    <Compile Include="ControlDePresencia.win\FormDatos.Designer.cs">
       <DependentUpon>FormDatos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPresencia.cs">
+    <Compile Include="ControlDePresencia.win\FormPresencia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPresencia.Designer.cs">
+    <Compile Include="ControlDePresencia.win\FormPresencia.Designer.cs">
       <DependentUpon>FormPresencia.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmContraseñaMantenimiento.cs">
+    <Compile Include="ControlDePresencia.win\FrmContraseñaMantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmContraseñaMantenimiento.designer.cs">
+    <Compile Include="ControlDePresencia.win\FrmContraseñaMantenimiento.designer.cs">
       <DependentUpon>FrmContraseñaMantenimiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPermanencia.cs">
+    <Compile Include="ControlDePresencia.win\FrmPermanencia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPermanencia.Designer.cs">
+    <Compile Include="ControlDePresencia.win\FrmPermanencia.Designer.cs">
       <DependentUpon>FrmPermanencia.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormDatos.resx">
+    <EmbeddedResource Include="ControlDePresencia.win\FormDatos.resx">
       <DependentUpon>FormDatos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPrincipal.resx">
+    <EmbeddedResource Include="ControlDePresencia.win\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMantenimiento.resx">
+    <EmbeddedResource Include="ControlDePresencia.win\FormMantenimiento.resx">
       <DependentUpon>FormMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPresencia.resx">
+    <EmbeddedResource Include="ControlDePresencia.win\FormPresencia.resx">
       <DependentUpon>FormPresencia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmContraseñaMantenimiento.resx">
+    <EmbeddedResource Include="ControlDePresencia.win\FrmContraseñaMantenimiento.resx">
       <DependentUpon>FrmContraseñaMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPermanencia.resx">
+    <EmbeddedResource Include="ControlDePresencia.win\FrmPermanencia.resx">
       <DependentUpon>FrmPermanencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

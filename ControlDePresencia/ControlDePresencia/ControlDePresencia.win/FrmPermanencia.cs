@@ -62,5 +62,16 @@ namespace ControlDePresencia
         {
 
         }
+
+        private void dgvPermanencia_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            double tiempo = 0;
+            for (int i=0; i < dgvPermanencia.Rows.Count; i++)
+            {
+                tiempo += Convert.ToInt32(dgvPermanencia.Rows[i].Cells[2].Value);
+            }
+            double horas = tiempo / 60;
+            MessageBox.Show(String.Format("El empleado ha fichado un total de:\nMinutos:  {0}\nHoras:  {1:00.00}",tiempo,horas));
+        }
     }
 }

@@ -41,7 +41,7 @@
             // btnAgregarEmpleado
             // 
             this.btnAgregarEmpleado.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarEmpleado.Location = new System.Drawing.Point(484, 24);
+            this.btnAgregarEmpleado.Location = new System.Drawing.Point(526, 24);
             this.btnAgregarEmpleado.Name = "btnAgregarEmpleado";
             this.btnAgregarEmpleado.Size = new System.Drawing.Size(91, 64);
             this.btnAgregarEmpleado.TabIndex = 1;
@@ -52,18 +52,19 @@
             // btnInforme
             // 
             this.btnInforme.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInforme.Location = new System.Drawing.Point(484, 192);
+            this.btnInforme.Location = new System.Drawing.Point(526, 164);
             this.btnInforme.Name = "btnInforme";
             this.btnInforme.Size = new System.Drawing.Size(91, 64);
             this.btnInforme.TabIndex = 2;
             this.btnInforme.TabStop = false;
-            this.btnInforme.Text = "Buscar Empleado";
+            this.btnInforme.Text = "Mostrar Informacion";
             this.btnInforme.UseVisualStyleBackColor = true;
+            this.btnInforme.Click += new System.EventHandler(this.btnInforme_Click);
             // 
             // btnEliminarEmpleado
             // 
             this.btnEliminarEmpleado.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarEmpleado.Location = new System.Drawing.Point(484, 107);
+            this.btnEliminarEmpleado.Location = new System.Drawing.Point(526, 94);
             this.btnEliminarEmpleado.Name = "btnEliminarEmpleado";
             this.btnEliminarEmpleado.Size = new System.Drawing.Size(91, 64);
             this.btnEliminarEmpleado.TabIndex = 3;
@@ -75,21 +76,26 @@
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.Location = new System.Drawing.Point(25, 24);
             this.dgvEmpleados.Name = "dgvEmpleados";
-            this.dgvEmpleados.Size = new System.Drawing.Size(403, 147);
+            this.dgvEmpleados.ReadOnly = true;
+            this.dgvEmpleados.RowHeadersVisible = false;
+            this.dgvEmpleados.Size = new System.Drawing.Size(447, 203);
             this.dgvEmpleados.TabIndex = 5;
             // 
             // dgvFichajes
             // 
             this.dgvFichajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFichajes.Location = new System.Drawing.Point(25, 192);
+            this.dgvFichajes.Location = new System.Drawing.Point(25, 249);
             this.dgvFichajes.Name = "dgvFichajes";
-            this.dgvFichajes.Size = new System.Drawing.Size(403, 147);
+            this.dgvFichajes.ReadOnly = true;
+            this.dgvFichajes.RowHeadersVisible = false;
+            this.dgvFichajes.Size = new System.Drawing.Size(447, 203);
             this.dgvFichajes.TabIndex = 6;
+            this.dgvFichajes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFichajes_CellContentClick);
             // 
             // btnSalida
             // 
             this.btnSalida.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalida.Location = new System.Drawing.Point(484, 275);
+            this.btnSalida.Location = new System.Drawing.Point(526, 234);
             this.btnSalida.Name = "btnSalida";
             this.btnSalida.Size = new System.Drawing.Size(91, 64);
             this.btnSalida.TabIndex = 7;
@@ -101,7 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(604, 360);
+            this.ClientSize = new System.Drawing.Size(657, 453);
             this.Controls.Add(this.btnSalida);
             this.Controls.Add(this.dgvFichajes);
             this.Controls.Add(this.dgvEmpleados);
