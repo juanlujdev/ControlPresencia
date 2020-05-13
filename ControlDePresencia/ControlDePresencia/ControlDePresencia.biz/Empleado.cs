@@ -57,9 +57,8 @@ namespace ControlDePresencia.ControlDePresencia.biz
             int retorno;
             bool exist = false; //Almacenara F/T dependiendo si encuentra o no coincidencia
             string consulta = String.Format("UPDATE empleado SET alta=FALSE WHERE nif = '{0}';", nif); //Query
-            MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta
-                        
-            MessageBox.Show(consulta); //Comprobacion
+            MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta                       
+            //MessageBox.Show(consulta); //Comprobacion
             retorno = comando.ExecuteNonQuery(); //Lanza la consulta
             exist = retorno > 0 ? true : false; //Almacenara F/T dependiendo si encuentra o no coincidencia
 
@@ -74,7 +73,7 @@ namespace ControlDePresencia.ControlDePresencia.biz
         public int BorrarEmpleado(MySqlConnection conexion, string nif)
         {
             int retorno;            
-            string consulta = String.Format("DELETE FROM empleado WHERE nif = '{0}' AND alta = FALSE;;", nif); //Query
+            string consulta = String.Format("DELETE FROM empleado WHERE nif = '{0}'", nif); //Query
             MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta
             //MessageBox.Show(consulta); //Comprobacion
             retorno = comando.ExecuteNonQuery(); //Lanza la consulta          
