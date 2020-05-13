@@ -34,100 +34,87 @@
             this.lblFecha1 = new System.Windows.Forms.Label();
             this.lblFecha2 = new System.Windows.Forms.Label();
             this.dgvPermanencia = new System.Windows.Forms.DataGridView();
-            this.btnConsultar = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.lblDni = new System.Windows.Forms.Label();
             this.lblMostrarDni = new System.Windows.Forms.Label();
             this.errPemanencia = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnConsultar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermanencia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errPemanencia)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtpFecha1
             // 
+            this.dtpFecha1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFecha1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha1.Location = new System.Drawing.Point(166, 21);
+            this.dtpFecha1.Location = new System.Drawing.Point(105, 19);
             this.dtpFecha1.Name = "dtpFecha1";
-            this.dtpFecha1.Size = new System.Drawing.Size(97, 20);
+            this.dtpFecha1.Size = new System.Drawing.Size(97, 24);
             this.dtpFecha1.TabIndex = 0;
             // 
             // dtpFecha2
             // 
+            this.dtpFecha2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFecha2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha2.Location = new System.Drawing.Point(390, 21);
+            this.dtpFecha2.Location = new System.Drawing.Point(303, 20);
             this.dtpFecha2.Name = "dtpFecha2";
-            this.dtpFecha2.Size = new System.Drawing.Size(97, 20);
+            this.dtpFecha2.Size = new System.Drawing.Size(97, 24);
             this.dtpFecha2.TabIndex = 1;
             // 
             // lblFecha1
             // 
             this.lblFecha1.AutoSize = true;
-            this.lblFecha1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha1.Location = new System.Drawing.Point(52, 21);
+            this.lblFecha1.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lblFecha1.Location = new System.Drawing.Point(24, 24);
             this.lblFecha1.Name = "lblFecha1";
-            this.lblFecha1.Size = new System.Drawing.Size(73, 20);
+            this.lblFecha1.Size = new System.Drawing.Size(68, 19);
             this.lblFecha1.TabIndex = 2;
             this.lblFecha1.Text = "1ª Fecha";
             // 
             // lblFecha2
             // 
             this.lblFecha2.AutoSize = true;
-            this.lblFecha2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha2.Location = new System.Drawing.Point(290, 21);
+            this.lblFecha2.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lblFecha2.Location = new System.Drawing.Point(222, 25);
             this.lblFecha2.Name = "lblFecha2";
-            this.lblFecha2.Size = new System.Drawing.Size(73, 20);
+            this.lblFecha2.Size = new System.Drawing.Size(68, 19);
             this.lblFecha2.TabIndex = 3;
             this.lblFecha2.Text = "2ª Fecha";
             // 
             // dgvPermanencia
             // 
+            this.dgvPermanencia.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPermanencia.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.dgvPermanencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPermanencia.Location = new System.Drawing.Point(47, 105);
+            this.dgvPermanencia.GridColor = System.Drawing.Color.LightBlue;
+            this.dgvPermanencia.Location = new System.Drawing.Point(47, 122);
             this.dgvPermanencia.Name = "dgvPermanencia";
-            this.dgvPermanencia.Size = new System.Drawing.Size(440, 249);
+            this.dgvPermanencia.Size = new System.Drawing.Size(440, 232);
             this.dgvPermanencia.TabIndex = 4;
             this.dgvPermanencia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPermanencia_CellClick);
             this.dgvPermanencia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPermanencia_CellContentClick);
             // 
-            // btnConsultar
-            // 
-            this.btnConsultar.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultar.Location = new System.Drawing.Point(95, 369);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(113, 41);
-            this.btnConsultar.TabIndex = 5;
-            this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.Location = new System.Drawing.Point(320, 369);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(113, 41);
-            this.btnCerrar.TabIndex = 6;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
             // lblDni
             // 
             this.lblDni.AutoSize = true;
-            this.lblDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDni.Location = new System.Drawing.Point(69, 73);
+            this.lblDni.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lblDni.Location = new System.Drawing.Point(24, 71);
             this.lblDni.Name = "lblDni";
-            this.lblDni.Size = new System.Drawing.Size(139, 16);
+            this.lblDni.Size = new System.Drawing.Size(139, 19);
             this.lblDni.TabIndex = 7;
             this.lblDni.Text = "DNI del Empleado:";
             // 
             // lblMostrarDni
             // 
             this.lblMostrarDni.AutoSize = true;
-            this.lblMostrarDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMostrarDni.Location = new System.Drawing.Point(253, 73);
+            this.lblMostrarDni.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lblMostrarDni.Location = new System.Drawing.Point(222, 71);
             this.lblMostrarDni.Name = "lblMostrarDni";
-            this.lblMostrarDni.Size = new System.Drawing.Size(45, 16);
+            this.lblMostrarDni.Size = new System.Drawing.Size(51, 19);
             this.lblMostrarDni.TabIndex = 8;
             this.lblMostrarDni.Text = "label1";
             // 
@@ -135,28 +122,73 @@
             // 
             this.errPemanencia.ContainerControl = this;
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel1.Controls.Add(this.lblMostrarDni);
+            this.panel1.Controls.Add(this.lblDni);
+            this.panel1.Controls.Add(this.lblFecha2);
+            this.panel1.Controls.Add(this.lblFecha1);
+            this.panel1.Controls.Add(this.dtpFecha2);
+            this.panel1.Controls.Add(this.dtpFecha1);
+            this.panel1.Location = new System.Drawing.Point(47, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(440, 103);
+            this.panel1.TabIndex = 9;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCerrar.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnCerrar.BackgroundImage = global::ControlDePresencia.Properties.Resources.volver2;
+            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnCerrar.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Location = new System.Drawing.Point(313, 360);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(79, 65);
+            this.btnCerrar.TabIndex = 6;
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConsultar.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnConsultar.BackgroundImage = global::ControlDePresencia.Properties.Resources.consulta_busqueda1;
+            this.btnConsultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnConsultar.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultar.Location = new System.Drawing.Point(133, 360);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(79, 65);
+            this.btnConsultar.TabIndex = 5;
+            this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
             // FrmPermanencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(546, 446);
             this.ControlBox = false;
-            this.Controls.Add(this.lblMostrarDni);
-            this.Controls.Add(this.lblDni);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.dgvPermanencia);
-            this.Controls.Add(this.lblFecha2);
-            this.Controls.Add(this.lblFecha1);
-            this.Controls.Add(this.dtpFecha2);
-            this.Controls.Add(this.dtpFecha1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FrmPermanencia";
             this.Text = "Ventana Permanencia";
             this.Load += new System.EventHandler(this.FrmPermanencia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermanencia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errPemanencia)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -172,5 +204,6 @@
         private System.Windows.Forms.Label lblDni;
         private System.Windows.Forms.Label lblMostrarDni;
         private System.Windows.Forms.ErrorProvider errPemanencia;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -170,6 +170,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -185,6 +186,41 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\btonsalida1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btonsalida1 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btonentrada1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\presencia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\permanencia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\volver1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\volver2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\consulta_busqueda1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\volver_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enviar_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apagar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enviar1_48.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

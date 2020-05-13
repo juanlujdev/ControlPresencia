@@ -38,36 +38,38 @@
             // 
             // txtDni
             // 
-            this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDni.Location = new System.Drawing.Point(80, 38);
-            this.txtDni.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtDni.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.txtDni.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDni.Location = new System.Drawing.Point(12, 12);
             this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(334, 43);
+            this.txtDni.Size = new System.Drawing.Size(224, 32);
             this.txtDni.TabIndex = 0;
             this.txtDni.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnEliminar
             // 
+            this.btnEliminar.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnEliminar.BackgroundImage = global::ControlDePresencia.Properties.Resources.enviar1_48;
+            this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnEliminar.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(80, 129);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEliminar.Location = new System.Drawing.Point(12, 63);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(154, 65);
+            this.btnEliminar.Size = new System.Drawing.Size(64, 58);
             this.btnEliminar.TabIndex = 1;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnComprobar_Click);
             // 
             // btnSalir
             // 
+            this.btnSalir.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnSalir.BackgroundImage = global::ControlDePresencia.Properties.Resources.volver_48px;
+            this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSalir.Font = new System.Drawing.Font("Bahnschrift SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(261, 129);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSalir.Location = new System.Drawing.Point(172, 63);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(154, 65);
+            this.btnSalir.Size = new System.Drawing.Size(64, 58);
             this.btnSalir.TabIndex = 2;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // errorPrDni
@@ -76,14 +78,15 @@
             // 
             // FormEliminarEmpleado
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 237);
+            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.ClientSize = new System.Drawing.Size(253, 147);
             this.ControlBox = false;
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.txtDni);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FormEliminarEmpleado";
             this.Text = "Datos";
             this.Load += new System.EventHandler(this.FormEliminarEmpleado_Load);

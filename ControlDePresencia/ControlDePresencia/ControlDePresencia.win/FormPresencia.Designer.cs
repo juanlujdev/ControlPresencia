@@ -35,29 +35,34 @@
             // 
             // dgvListado
             // 
+            this.dgvListado.BackgroundColor = System.Drawing.Color.SteelBlue;
             this.dgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListado.GridColor = System.Drawing.Color.LightBlue;
             this.dgvListado.Location = new System.Drawing.Point(27, 28);
             this.dgvListado.Name = "dgvListado";
-            this.dgvListado.Size = new System.Drawing.Size(419, 252);
+            this.dgvListado.Size = new System.Drawing.Size(342, 246);
             this.dgvListado.TabIndex = 0;
             this.dgvListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListado_CellContentClick);
             // 
             // btnCerrar
             // 
+            this.btnCerrar.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnCerrar.BackgroundImage = global::ControlDePresencia.Properties.Resources.volver2;
+            this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnCerrar.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.Location = new System.Drawing.Point(182, 316);
+            this.btnCerrar.Location = new System.Drawing.Point(158, 280);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(108, 41);
+            this.btnCerrar.Size = new System.Drawing.Size(81, 63);
             this.btnCerrar.TabIndex = 1;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // FormPresencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 373);
+            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.ClientSize = new System.Drawing.Size(404, 355);
             this.ControlBox = false;
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dgvListado);

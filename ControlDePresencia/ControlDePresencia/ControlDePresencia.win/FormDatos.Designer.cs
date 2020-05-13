@@ -35,18 +35,21 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblContraseña = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
-            this.btnEnviar = new System.Windows.Forms.Button();
             this.cbxAlta = new System.Windows.Forms.CheckBox();
             this.cbxAdministrador = new System.Windows.Forms.CheckBox();
             this.lblNif = new System.Windows.Forms.Label();
             this.txtNif = new System.Windows.Forms.TextBox();
             this.errpDatos = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.btnEnviar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errpDatos)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNombre
             // 
+            this.txtNombre.BackColor = System.Drawing.Color.LightSteelBlue;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(114, 51);
             this.txtNombre.Multiline = true;
@@ -56,6 +59,7 @@
             // 
             // txtApellido
             // 
+            this.txtApellido.BackColor = System.Drawing.Color.LightSteelBlue;
             this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido.Location = new System.Drawing.Point(114, 81);
             this.txtApellido.Multiline = true;
@@ -65,6 +69,7 @@
             // 
             // txtContraseña
             // 
+            this.txtContraseña.BackColor = System.Drawing.Color.LightSteelBlue;
             this.txtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContraseña.Location = new System.Drawing.Point(114, 113);
             this.txtContraseña.Multiline = true;
@@ -75,51 +80,40 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblNombre.Location = new System.Drawing.Point(21, 56);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(63, 16);
+            this.lblNombre.Size = new System.Drawing.Size(67, 19);
             this.lblNombre.TabIndex = 15;
             this.lblNombre.Text = "Nombre";
             // 
             // lblContraseña
             // 
             this.lblContraseña.AutoSize = true;
-            this.lblContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContraseña.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblContraseña.Location = new System.Drawing.Point(21, 121);
             this.lblContraseña.Name = "lblContraseña";
-            this.lblContraseña.Size = new System.Drawing.Size(87, 16);
+            this.lblContraseña.Size = new System.Drawing.Size(88, 19);
             this.lblContraseña.TabIndex = 18;
             this.lblContraseña.Text = "Contraseña";
             // 
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellido.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblApellido.Location = new System.Drawing.Point(21, 89);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(66, 16);
+            this.lblApellido.Size = new System.Drawing.Size(67, 19);
             this.lblApellido.TabIndex = 19;
             this.lblApellido.Text = "Apellido";
-            // 
-            // btnEnviar
-            // 
-            this.btnEnviar.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnviar.Location = new System.Drawing.Point(299, 109);
-            this.btnEnviar.Name = "btnEnviar";
-            this.btnEnviar.Size = new System.Drawing.Size(67, 28);
-            this.btnEnviar.TabIndex = 20;
-            this.btnEnviar.Text = "Enviar";
-            this.btnEnviar.UseVisualStyleBackColor = true;
-            this.btnEnviar.Click += new System.EventHandler(this.btnSalida_Click);
             // 
             // cbxAlta
             // 
             this.cbxAlta.AutoSize = true;
-            this.cbxAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.cbxAlta.Location = new System.Drawing.Point(299, 18);
+            this.cbxAlta.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold);
+            this.cbxAlta.Location = new System.Drawing.Point(3, 5);
             this.cbxAlta.Name = "cbxAlta";
-            this.cbxAlta.Size = new System.Drawing.Size(54, 20);
+            this.cbxAlta.Size = new System.Drawing.Size(57, 23);
             this.cbxAlta.TabIndex = 21;
             this.cbxAlta.Text = "Alta";
             this.cbxAlta.UseVisualStyleBackColor = true;
@@ -127,10 +121,10 @@
             // cbxAdministrador
             // 
             this.cbxAdministrador.AutoSize = true;
-            this.cbxAdministrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.cbxAdministrador.Location = new System.Drawing.Point(299, 56);
+            this.cbxAdministrador.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold);
+            this.cbxAdministrador.Location = new System.Drawing.Point(3, 43);
             this.cbxAdministrador.Name = "cbxAdministrador";
-            this.cbxAdministrador.Size = new System.Drawing.Size(123, 20);
+            this.cbxAdministrador.Size = new System.Drawing.Size(130, 23);
             this.cbxAdministrador.TabIndex = 23;
             this.cbxAdministrador.Text = "Administrador";
             this.cbxAdministrador.UseVisualStyleBackColor = true;
@@ -140,15 +134,16 @@
             // lblNif
             // 
             this.lblNif.AutoSize = true;
-            this.lblNif.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNif.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblNif.Location = new System.Drawing.Point(21, 23);
             this.lblNif.Name = "lblNif";
-            this.lblNif.Size = new System.Drawing.Size(32, 16);
+            this.lblNif.Size = new System.Drawing.Size(34, 19);
             this.lblNif.TabIndex = 25;
             this.lblNif.Text = "NIF";
             // 
             // txtNif
             // 
+            this.txtNif.BackColor = System.Drawing.Color.LightSteelBlue;
             this.txtNif.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNif.Location = new System.Drawing.Point(114, 18);
             this.txtNif.Multiline = true;
@@ -161,28 +156,53 @@
             this.errpDatos.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errpDatos.ContainerControl = this;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel1.Controls.Add(this.cbxAdministrador);
+            this.panel1.Controls.Add(this.cbxAlta);
+            this.panel1.Location = new System.Drawing.Point(297, 18);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(142, 68);
+            this.panel1.TabIndex = 27;
+            // 
             // btnSalir
             // 
+            this.btnSalir.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnSalir.BackgroundImage = global::ControlDePresencia.Properties.Resources.volver_48px;
+            this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSalir.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(372, 109);
+            this.btnSalir.Location = new System.Drawing.Point(390, 99);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(67, 28);
+            this.btnSalir.Size = new System.Drawing.Size(49, 54);
             this.btnSalir.TabIndex = 26;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnEnviar
+            // 
+            this.btnEnviar.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnEnviar.BackgroundImage = global::ControlDePresencia.Properties.Resources.enviar1_48;
+            this.btnEnviar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnEnviar.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnviar.Location = new System.Drawing.Point(297, 99);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(49, 54);
+            this.btnEnviar.TabIndex = 20;
+            this.btnEnviar.UseVisualStyleBackColor = false;
+            this.btnEnviar.Click += new System.EventHandler(this.btnSalida_Click);
             // 
             // FormDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(463, 163);
             this.ControlBox = false;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblNif);
             this.Controls.Add(this.txtNif);
-            this.Controls.Add(this.cbxAdministrador);
-            this.Controls.Add(this.cbxAlta);
             this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.lblContraseña);
@@ -190,11 +210,14 @@
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.txtNombre);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FormDatos";
             this.ShowIcon = false;
             this.Text = "Datos";
             this.Load += new System.EventHandler(this.FormDatos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errpDatos)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,5 +238,6 @@
         private System.Windows.Forms.TextBox txtNif;
         private System.Windows.Forms.ErrorProvider errpDatos;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Panel panel1;
     }
 }

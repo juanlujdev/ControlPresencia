@@ -45,8 +45,8 @@ namespace ControlDePresencia
         /// <returns>Devuelve tipo bool</returns>
         static public bool ComprobarEmpleado(string nif, MySqlConnection conexion)
         {
-            bool exist = false; 
-            string consulta = String.Format("SELECT * FROM empleado WHERE nif = '{0}' AND alta = {1};", nif,true); //Query
+            bool exist = false;
+            string consulta = String.Format("SELECT * FROM empleado WHERE nif = '{0}';", nif); //Query
             MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta
             //MessageBox.Show(consulta); //Comprobacion
             MySqlDataReader reader = comando.ExecuteReader(); //Lanza la consulta
