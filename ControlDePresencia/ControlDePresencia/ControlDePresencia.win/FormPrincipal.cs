@@ -18,6 +18,23 @@ namespace ControlDePresencia
     {
         MySqlConnection conexion = BDatos.ConexionBD(); //Instancia el objeto MySqlConnection
 
+        #region Validacion
+        private bool Validacion()
+        {
+            bool ok = true;
+            if (txtDni.Text.Length < 9 || txtDni.Text.Length > 9)
+            {
+                ok = false;
+                errPrincpial.SetError(txtDni, "Longitud del DNI incorrecto o campo vacio");
+            }
+            else
+            {
+                errPrincpial.SetError(txtDni, "");
+            }
+            return ok;
+        }
+        #endregion
+
         public FormPrincipal()
         {
             InitializeComponent();
@@ -32,12 +49,9 @@ namespace ControlDePresencia
         private void lblEntrada_Click(object sender, EventArgs e)
         {
             //Comprueba si el txt box del dni esta vacio
-            if (txtDni.Text == "")
-            {
-                MessageBox.Show("El campo del DNI no puede estar vacio");
-                return;
-            }
+            if (!Validacion()) return; //Si el valodado da false no sigue la ejecuion
             string nif = txtDni.Text.ToUpper();
+
             try
             {
                 //Abre la conexion
@@ -78,7 +92,7 @@ namespace ControlDePresencia
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
             }
             finally
             {
@@ -88,11 +102,7 @@ namespace ControlDePresencia
 
         private void btnSalida_Click(object sender, EventArgs e)
         {
-            if (txtDni.Text == "")
-            {
-                MessageBox.Show("El campo del DNI no puede estar vacio");
-                return;
-            }
+            if (!Validacion()) return; 
             string nif = txtDni.Text.ToUpper();
             try
             {
@@ -130,7 +140,7 @@ namespace ControlDePresencia
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
             }
             finally
             {
@@ -159,11 +169,7 @@ namespace ControlDePresencia
 
         private void btnPermanencia_Click(object sender, EventArgs e)
         {
-            if (txtDni.Text == "")
-            {
-                MessageBox.Show("El campo del DNI no puede estar vacio");
-                return;
-            }
+            if (!Validacion()) return;
             string nif = txtDni.Text.ToUpper();
             try
             {
@@ -188,7 +194,7 @@ namespace ControlDePresencia
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
             }
             finally
             {
@@ -198,11 +204,7 @@ namespace ControlDePresencia
 
         private void btnMantenimiento_Click(object sender, EventArgs e)
         {
-            if (txtDni.Text == "")
-            {
-                MessageBox.Show("El campo del DNI no puede estar vacio");
-                return;
-            }
+            if (!Validacion()) return;
             string nif = txtDni.Text.ToUpper();          
             try
             {
@@ -245,7 +247,7 @@ namespace ControlDePresencia
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
             }
             finally
             {
@@ -265,9 +267,64 @@ namespace ControlDePresencia
 
         }
 
+
         private void tmrReloj_Tick_1(object sender, EventArgs e)
         {
             lblReloj.Text = DateTime.Now.ToLongTimeString();
         }
-    }
+        private void mantenimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+                if (!Validacion()) return;
+                string nif = txtDni.Text.ToUpper();
+                try
+                {
+                    if (BDatos.AbrirConexion())
+                    {
+                        if (!LibreriaMetodos.ComprobarLetra(nif))
+                        {
+                            MessageBox.Show("NIF incorrecto"); return;
+                        }
+
+                        if (!LibreriaMetodos.ComprobarEmpleado(nif, conexion))
+                        {
+                            MessageBox.Show("El empleado no existe"); return;
+                        }
+
+                        if (!LibreriaMetodos.ComprobarAdmin(nif, conexion))
+                        {
+                            MessageBox.Show("El empleado no es administrador"); return;
+                        }
+                        //Si el empleado es adminitrador , instancia el from para que introduzca la contraseña
+                        FrmContraseñaMantenimiento mantenimiento = new FrmContraseñaMantenimiento();
+                        mantenimiento.ShowDialog();
+                        string contraseña = mantenimiento.Contraseña;
+                        if (!mantenimiento.Ok) return; //La validacion del formulario de la contraseña no esta correcta y corta.
+                                                       //Si la contraseña es correcta abre el formulario de mantenimiento
+                        if (LibreriaMetodos.ComprobarPassword(contraseña, conexion))
+                        {
+                            FormMantenimiento manteni = new FormMantenimiento();
+                            manteni.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Contraseña Erronea");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se ha establecido la conexión", "Error");
+                    };
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
+                }
+                finally
+                {
+                    BDatos.CerrarConexion();
+                }
+
+
+            }
+        }
 }

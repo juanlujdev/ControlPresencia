@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dtpFecha1 = new System.Windows.Forms.DateTimePicker();
             this.dtpFecha2 = new System.Windows.Forms.DateTimePicker();
             this.lblFecha1 = new System.Windows.Forms.Label();
@@ -37,7 +38,9 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.lblDni = new System.Windows.Forms.Label();
             this.lblMostrarDni = new System.Windows.Forms.Label();
+            this.errPemanencia = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermanencia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPemanencia)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpFecha1
@@ -128,6 +131,10 @@
             this.lblMostrarDni.TabIndex = 8;
             this.lblMostrarDni.Text = "label1";
             // 
+            // errPemanencia
+            // 
+            this.errPemanencia.ContainerControl = this;
+            // 
             // FrmPermanencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,6 +154,7 @@
             this.Text = "Ventana Permanencia";
             this.Load += new System.EventHandler(this.FrmPermanencia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermanencia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPemanencia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,5 +171,6 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Label lblDni;
         private System.Windows.Forms.Label lblMostrarDni;
+        private System.Windows.Forms.ErrorProvider errPemanencia;
     }
 }

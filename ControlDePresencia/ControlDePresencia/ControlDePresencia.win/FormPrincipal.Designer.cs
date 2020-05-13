@@ -36,7 +36,16 @@
             this.txtDni = new System.Windows.Forms.TextBox();
             this.lblReloj = new System.Windows.Forms.Label();
             this.lblEntrada = new System.Windows.Forms.Button();
+
             this.tmrReloj = new System.Windows.Forms.Timer(this.components);
+
+            this.errPrincpial = new System.Windows.Forms.ErrorProvider(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            ((System.ComponentModel.ISupportInitialize)(this.errPrincpial)).BeginInit();
+            this.menuStrip1.SuspendLayout();
+
             this.SuspendLayout();
             // 
             // btnSalida
@@ -90,8 +99,13 @@
             // txtDni
             // 
             this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.txtDni.Location = new System.Drawing.Point(74, 40);
             this.txtDni.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+
+            this.txtDni.Location = new System.Drawing.Point(39, 52);
+            this.txtDni.Multiline = true;
+
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(340, 48);
             this.txtDni.TabIndex = 6;
@@ -101,8 +115,12 @@
             // 
             this.lblReloj.AutoSize = true;
             this.lblReloj.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.lblReloj.Location = new System.Drawing.Point(171, 152);
             this.lblReloj.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+
+            this.lblReloj.Location = new System.Drawing.Point(124, 109);
+
             this.lblReloj.Name = "lblReloj";
             this.lblReloj.Size = new System.Drawing.Size(100, 37);
             this.lblReloj.TabIndex = 7;
@@ -125,12 +143,47 @@
             // 
             this.tmrReloj.Enabled = true;
             this.tmrReloj.Tick += new System.EventHandler(this.tmrReloj_Tick_1);
+
+            // errPrincpial
+            // 
+            this.errPrincpial.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errPrincpial.ContainerControl = this;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(325, 24);
+            this.menuStrip1.TabIndex = 8;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // menuToolStripMenuItem
+            // 
+            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mantenimientoToolStripMenuItem});
+            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.menuToolStripMenuItem.Text = "Menu";
+            // 
+            // mantenimientoToolStripMenuItem
+            // 
+            this.mantenimientoToolStripMenuItem.Name = "mantenimientoToolStripMenuItem";
+            this.mantenimientoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mantenimientoToolStripMenuItem.Text = "Mantenimiento";
+            this.mantenimientoToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoToolStripMenuItem_Click);
+
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.ClientSize = new System.Drawing.Size(488, 608);
+
+            this.ClientSize = new System.Drawing.Size(325, 305);
+
             this.ControlBox = false;
             this.Controls.Add(this.lblReloj);
             this.Controls.Add(this.txtDni);
@@ -139,10 +192,18 @@
             this.Controls.Add(this.btnPresencia);
             this.Controls.Add(this.btnSalida);
             this.Controls.Add(this.lblEntrada);
+
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+
             this.Name = "FormPrincipal";
             this.Text = "Control De Presencia";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errPrincpial)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,7 +217,14 @@
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.Label lblReloj;
         private System.Windows.Forms.Button lblEntrada;
+
         private System.Windows.Forms.Timer tmrReloj;
+
+        private System.Windows.Forms.ErrorProvider errPrincpial;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mantenimientoToolStripMenuItem;
+
     }
 }
 

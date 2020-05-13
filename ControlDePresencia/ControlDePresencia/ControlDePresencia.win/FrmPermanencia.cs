@@ -15,6 +15,28 @@ namespace ControlDePresencia
     {
         MySqlConnection conexion = BDatos.ConexionBD();
 
+        #region Validacion
+        private bool Validacion()
+        {
+            bool ok = true;
+            //Convertimos las fechas para indicar una hora exacta, si no el validador toma el dia actual como el mismo.
+            DateTime fe1 = Convert.ToDateTime(dtpFecha1.Value.ToString("yyyy-MM-dd 00:00:00")); 
+            DateTime fe2 = Convert.ToDateTime(dtpFecha2.Value.ToString("yyyy-MM-dd 23:59:59"));
+
+            if (fe1 >  fe2)
+            {
+                ok = false;
+                errPemanencia.SetError(dtpFecha1, "La Primera fecha no puede superior a la segunda");
+            }
+            else
+            {
+                errPemanencia.SetError(dtpFecha1, "");
+            }
+
+            return ok;
+        }
+        #endregion
+
         public FrmPermanencia(string nif)//le paso al constructor el nif del form principal previamente comprobado letra y usuario de alta
         {
             InitializeComponent();
@@ -33,13 +55,14 @@ namespace ControlDePresencia
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            if (!Validacion()) return; // Si es false , la validacion no esta ok y corta;
             try
             {
                 if (BDatos.AbrirConexion())
                 {
                     DateTime fecha1 = dtpFecha1.Value;
                     DateTime fecha2 = dtpFecha2.Value;
-                    string nif = lblMostrarDni.Text;//como tengo los datos en el label, puedo pasarlos al metodo mostrarFichaje()
+                    string nif = lblMostrarDni.Text;//como tengo los datos en el label, puedo pasarlos al metodo mostrarFichaje()                    
                     BindingSource lista = LibreriaMetodos.MostrarFichaje(fecha1, fecha2, conexion ,nif);
                     dgvPermanencia.DataSource = lista;
                 }

@@ -46,16 +46,39 @@ namespace ControlDePresencia.ControlDePresencia.biz
         #endregion
 
         #region Metodos de interfaz
+        /// <summary>
+        /// Hace un update en la base de datos del atributo alta del empleado , pero no lo borra de la base de datos
+        /// </summary>
+        /// <param name="conexion"></param>
+        /// <param name="nif"></param>
+        /// <returns>Devuelve true o false si ha modificado linea en la base de datos</returns>
         public bool EliminarEmpleado(MySqlConnection conexion ,string nif)
         {
+            int retorno;
             bool exist = false; //Almacenara F/T dependiendo si encuentra o no coincidencia
             string consulta = String.Format("UPDATE empleado SET alta=FALSE WHERE nif = '{0}';", nif); //Query
             MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta
-            //MessageBox.Show(consulta); //Comprobacion
-            MySqlDataReader reader = comando.ExecuteReader(); //Lanza la consulta
-            exist = reader.HasRows ? true : false;
-            reader.Close();
+                        
+            MessageBox.Show(consulta); //Comprobacion
+            retorno = comando.ExecuteNonQuery(); //Lanza la consulta
+            exist = retorno > 0 ? true : false; //Almacenara F/T dependiendo si encuentra o no coincidencia
+
             return exist;
+        }
+        /// <summary>
+        /// Hace un delete en la base de datos a partir del nif del empleado y si esta dado de baja
+        /// </summary>
+        /// <param name="conexion"></param>
+        /// <param name="nif"></param>
+        /// <returns>Devuelve el numero de filas eliminadas</returns>
+        public int BorrarEmpleado(MySqlConnection conexion, string nif)
+        {
+            int retorno;            
+            string consulta = String.Format("DELETE FROM empleado WHERE nif = '{0}' AND alta = FALSE;;", nif); //Query
+            MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta
+            //MessageBox.Show(consulta); //Comprobacion
+            retorno = comando.ExecuteNonQuery(); //Lanza la consulta          
+            return retorno;
         }
 
         /// <summary>

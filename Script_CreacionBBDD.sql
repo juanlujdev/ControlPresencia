@@ -10,12 +10,12 @@ contraseña VARCHAR(50) NULL,
 PRIMARY KEY (nif));
 
 CREATE TABLE if NOT EXISTS fichaje(
-nif VARCHAR(20) NOT NULL,
+nif VARCHAR(20) NULL,
 horaEntrada DATETIME NOT NULL,
 horaSalida DATETIME NOT NULL,
 finalizar TINYINT(1));
 ##Se elimina la primary key , para poder repetir el nif. (Se podria añadir una primary autoincrement  si fuera necesario)
-alter table fichaje ADD CONSTRAINT fk_1 FOREIGN KEY (nif) REFERENCES empleado (nif);
+alter table fichaje ADD CONSTRAINT fk_1 FOREIGN KEY (nif) REFERENCES empleado (nif) ON DELETE SET null;
 
 #DATOS DE PRUEBA
 INSERT INTO empleado (`alta`,`nif`,`nombre`,`apellidos`,`administrador`,`contraseña`) VALUES (TRUE,'11111111H','Juan','Marques',TRUE,'1dam');
@@ -44,3 +44,4 @@ SELECT * FROM empleado WHERE administrador = TRUE AND WHERE ;
 SELECT * FROM empleado WHERE administrador = TRUE AND ;
 SELECT * FROM empleado;
 SELECT * FROM fichaje;
+DELETE FROM empleado WHERE nif = "22585111y" AND alta = FALSE;
