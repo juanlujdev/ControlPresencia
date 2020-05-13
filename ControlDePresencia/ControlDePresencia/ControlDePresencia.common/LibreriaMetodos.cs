@@ -130,11 +130,34 @@ namespace ControlDePresencia
             }
             else
             {
-                MessageBox.Show("No se han obtenido resultados");
+                MessageBox.Show("No se han obtenido resultados que visualizar de empleados");
             }
             return bs;
         }
-
+        /// <summary>
+        /// Obtiene los datos de un empleado concreto a partir de un niz
+        /// </summary>
+        /// <param name="conexion"></param>
+        /// <param name="nif"></param>
+        /// <returns>Devuevle un objeto de tipo BindinSource</returns>
+        static public BindingSource MostrarEmpleado(MySqlConnection conexion,string nif)
+        {
+            BindingSource bs = new BindingSource();
+            string consulta = String.Format("SELECT * FROM empleado WHERE nif = '{0}';",nif);
+            MySqlCommand comando = new MySqlCommand(consulta, conexion);
+            //MessageBox.Show(consulta);//Comprobacion
+            MySqlDataReader reader = comando.ExecuteReader();
+            if (reader.HasRows)
+            {
+                bs.DataSource = reader;
+                reader.Close();
+            }
+            else
+            {
+                MessageBox.Show("No se han obtenido resultados que visualizar de empleados");
+            }
+            return bs;
+        }
         /// <summary>
         /// Obtiene toda la informacion de la tabla empelado
         /// </summary>
@@ -142,7 +165,7 @@ namespace ControlDePresencia
         /// <returns>Devuevle un objeto de tipo BindinSource</returns>
         static public BindingSource MostrarTodoEmpleado(MySqlConnection conexion)
         {
-            BindingSource bs = new BindingSource(); ///QUE ES EXACTAMENTE?¿?¿?¿
+            BindingSource bs = new BindingSource();
             string consulta = "SELECT * FROM empleado;";
             MySqlCommand comando = new MySqlCommand(consulta, conexion);
             //MessageBox.Show(consulta);//Comprobacion
@@ -154,7 +177,7 @@ namespace ControlDePresencia
             }
             else
             {
-                MessageBox.Show("No se han obtenido resultados");
+                MessageBox.Show("No se han obtenido resultados que visualizar de empleados");
             }
             return bs;
         }
@@ -182,7 +205,7 @@ namespace ControlDePresencia
             }
             else
             {
-                MessageBox.Show("No se han obtenido resultados");
+                MessageBox.Show("No se han obtenido resultados que visualizar de fichajes");
             }
             return bs;
         }
@@ -206,11 +229,17 @@ namespace ControlDePresencia
             }
             else
             {
-                MessageBox.Show("No se han obtenido resultados");
+                MessageBox.Show("No se han obtenido resultados que visualizar de fichajes");
             }
             return bs;
         }
 
+        /// <summary>
+        /// Obtiene los datos de un empleado concreto a partir de un nif 
+        /// </summary>
+        /// <param name="conexion"></param>
+        /// <param name="nif"></param>
+        /// <returns>Devuevle un objeto de tipo BindinSource</returns>
         static public BindingSource MostrarFichaje(MySqlConnection conexion, string nif)
         {
             BindingSource bs = new BindingSource();
@@ -225,7 +254,7 @@ namespace ControlDePresencia
             }
             else
             {
-                MessageBox.Show("No se han obtenido resultados");
+                MessageBox.Show("No se han obtenido resultados que visualizar de fichajes");
             }
             return bs;
         }

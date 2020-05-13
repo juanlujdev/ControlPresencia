@@ -73,6 +73,30 @@ namespace ControlDePresencia
                 BDatos.CerrarConexion();
             }
         }
+
+        private void CargarDgvEmpleado(string nif)
+        {
+            try
+            {
+                if (BDatos.AbrirConexion())
+                {
+                    BindingSource listaEmpleados = LibreriaMetodos.MostrarEmpleado(conexion, nif);
+                    dgvEmpleados.DataSource = listaEmpleados;
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido abrir la conexion.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
+            }
+            finally  // en cualquier caso cierro la conexión (haya error o no)
+            {
+                BDatos.CerrarConexion();
+            }
+        }
         #endregion
 
         #region Manejadores
@@ -141,6 +165,7 @@ namespace ControlDePresencia
             int n = e.RowIndex; //Almacena la posición donde se ha hecho dobleclik en el dgv
             string nif = dgvFichajes.Rows[n].Cells[0].Value.ToString(); //Saca el nif del cell
             CargarDgvFichaje(nif);
+            CargarDgvEmpleado(nif);
         }
 
         private void txtCerrar_Click(object sender, EventArgs e)
@@ -169,6 +194,40 @@ namespace ControlDePresencia
                        elimin.EliminarEmpleado(conexion, nif);
                        MessageBox.Show(String.Format("Se ha eliminado el empleado con NIF: {0}", nif));
                     }                   
+                }
+                else
+                {
+                    MessageBox.Show("No se ha establecido la conexión", "Error");
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
+            }
+            finally
+            {
+                BDatos.CerrarConexion();
+            }
+        }
+
+        private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void dgvEmpleados_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (BDatos.AbrirConexion())
+                {
+                    int n = e.RowIndex;
+                    string nif = dgvEmpleados.Rows[n].Cells[1].Value.ToString();
+                    if (MessageBox.Show("Se va ha eliminar el EMPLEADO Y SUS FICHAJES de la base de datos con DNI " + nif + ".\n Estas Seguro?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        Empleado elimin = new Empleado();
+                        int numRegistros = elimin.BorrarEmpleado(conexion, nif);
+                        MessageBox.Show(String.Format("Se ha borrado el empleado y se han eliminado {0} fichajes", numRegistros - 1));
+                    }
                 }
                 else
                 {

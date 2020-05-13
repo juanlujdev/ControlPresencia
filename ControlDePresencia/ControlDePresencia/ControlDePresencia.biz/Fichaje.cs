@@ -1,10 +1,12 @@
-﻿using MySql.Data.MySqlClient;
+﻿#region Usings
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+#endregion
 
 namespace ControlDePresencia.ControlDePresencia.biz
 {
@@ -58,13 +60,17 @@ namespace ControlDePresencia.ControlDePresencia.biz
 
             return alta;
         }
-
+        /// <summary>
+        /// Hace un Update del atrivuto finalizar y establece la hora de salida como la hora actual
+        /// </summary>
+        /// <param name="conexion"></param>
+        /// <param name="nif"></param>
+        /// <returns>Devuelve true o false si ha modificado linea en la base de datos</returns>
         public bool DarSalida(MySqlConnection conexion,string nif)
         {
             int retorno;
             bool alta;
             DateTime horaSalida = DateTime.Now;
-
             string consulta =
             String.Format("UPDATE fichaje SET horaSalida = '{0}', finalizar = TRUE WHERE nif = '{1}' AND finalizar = FALSE;"
             ,horaSalida.ToString("yyyy-MM-dd hh:mm:ss"),nif);
@@ -72,7 +78,6 @@ namespace ControlDePresencia.ControlDePresencia.biz
             MySqlCommand command = new MySqlCommand(consulta, conexion);
             retorno = command.ExecuteNonQuery();
             alta = retorno > 0 ? true : false;
-
             return alta;
         }
         #endregion
