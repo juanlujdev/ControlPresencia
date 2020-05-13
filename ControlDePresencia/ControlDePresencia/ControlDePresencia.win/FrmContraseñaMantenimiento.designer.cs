@@ -33,6 +33,7 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnAcceder = new System.Windows.Forms.Button();
             this.errPCnt = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errPCnt)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,6 +47,7 @@
             this.txtContraseña.Size = new System.Drawing.Size(224, 32);
             this.txtContraseña.TabIndex = 0;
             this.txtContraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.txtContraseña, "Introduce contraseña");
             // 
             // btnSalir
             // 
@@ -56,7 +58,8 @@
             this.btnSalir.Location = new System.Drawing.Point(172, 63);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(64, 58);
-            this.btnSalir.TabIndex = 1;
+            this.btnSalir.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.btnSalir, "Pulsa para volver");
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
@@ -69,7 +72,8 @@
             this.btnAcceder.Location = new System.Drawing.Point(12, 63);
             this.btnAcceder.Name = "btnAcceder";
             this.btnAcceder.Size = new System.Drawing.Size(64, 58);
-            this.btnAcceder.TabIndex = 2;
+            this.btnAcceder.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.btnAcceder, "Enviar datos");
             this.btnAcceder.UseVisualStyleBackColor = false;
             this.btnAcceder.Click += new System.EventHandler(this.btnAcceder_Click);
             // 
@@ -103,5 +107,6 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnAcceder;
         private System.Windows.Forms.ErrorProvider errPCnt;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

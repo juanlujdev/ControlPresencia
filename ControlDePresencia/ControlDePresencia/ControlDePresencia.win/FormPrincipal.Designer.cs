@@ -40,6 +40,7 @@
             this.btnPresencia = new System.Windows.Forms.Button();
             this.btnSalida = new System.Windows.Forms.Button();
             this.lblEntrada = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errPrincpial)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,8 +53,9 @@
             this.txtDni.Multiline = true;
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(214, 33);
-            this.txtDni.TabIndex = 6;
+            this.txtDni.TabIndex = 0;
             this.txtDni.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.txtDni, "Introduce DNI");
             // 
             // lblReloj
             // 
@@ -85,7 +87,7 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
             this.menuStrip1.Size = new System.Drawing.Size(322, 24);
-            this.menuStrip1.TabIndex = 8;
+            this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // menuToolStripMenuItem
@@ -99,8 +101,9 @@
             // mantenimientoToolStripMenuItem
             // 
             this.mantenimientoToolStripMenuItem.Name = "mantenimientoToolStripMenuItem";
-            this.mantenimientoToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.mantenimientoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.mantenimientoToolStripMenuItem.Text = "Mantenimiento";
+            this.mantenimientoToolStripMenuItem.ToolTipText = "Accede al panel de mantenimiento";
             this.mantenimientoToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoToolStripMenuItem_Click);
             // 
             // btnPermanencia
@@ -113,6 +116,7 @@
             this.btnPermanencia.Name = "btnPermanencia";
             this.btnPermanencia.Size = new System.Drawing.Size(88, 75);
             this.btnPermanencia.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.btnPermanencia, "Accede a Permanencia");
             this.btnPermanencia.UseVisualStyleBackColor = false;
             this.btnPermanencia.Click += new System.EventHandler(this.btnPermanencia_Click);
             // 
@@ -126,6 +130,7 @@
             this.btnPresencia.Name = "btnPresencia";
             this.btnPresencia.Size = new System.Drawing.Size(88, 75);
             this.btnPresencia.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.btnPresencia, "Accede a Presencia");
             this.btnPresencia.UseVisualStyleBackColor = false;
             this.btnPresencia.Click += new System.EventHandler(this.btnPresencia_Click);
             // 
@@ -141,6 +146,7 @@
             this.btnSalida.Name = "btnSalida";
             this.btnSalida.Size = new System.Drawing.Size(88, 75);
             this.btnSalida.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.btnSalida, "Pulsa para terminar el fichaje");
             this.btnSalida.UseVisualStyleBackColor = false;
             this.btnSalida.Click += new System.EventHandler(this.btnSalida_Click);
             // 
@@ -153,7 +159,8 @@
             this.lblEntrada.Location = new System.Drawing.Point(53, 148);
             this.lblEntrada.Name = "lblEntrada";
             this.lblEntrada.Size = new System.Drawing.Size(88, 75);
-            this.lblEntrada.TabIndex = 0;
+            this.lblEntrada.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.lblEntrada, "Pulsa para fichar");
             this.lblEntrada.UseVisualStyleBackColor = false;
             this.lblEntrada.Click += new System.EventHandler(this.lblEntrada_Click);
             // 
@@ -198,7 +205,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mantenimientoToolStripMenuItem;
-
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgvListado = new System.Windows.Forms.DataGridView();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.ttpPresencia = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,8 +42,10 @@
             this.dgvListado.GridColor = System.Drawing.Color.LightBlue;
             this.dgvListado.Location = new System.Drawing.Point(27, 28);
             this.dgvListado.Name = "dgvListado";
+            this.dgvListado.ShowCellToolTips = false;
             this.dgvListado.Size = new System.Drawing.Size(342, 246);
             this.dgvListado.TabIndex = 0;
+            this.ttpPresencia.SetToolTip(this.dgvListado, "Muestra los usuarios que han fichado");
             this.dgvListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListado_CellContentClick);
             // 
             // btnCerrar
@@ -54,6 +58,7 @@
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(81, 63);
             this.btnCerrar.TabIndex = 1;
+            this.ttpPresencia.SetToolTip(this.btnCerrar, "Pulsa para volver");
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
@@ -63,9 +68,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(404, 355);
-            this.ControlBox = false;
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dgvListado);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.HelpButton = true;
             this.Name = "FormPresencia";
             this.Text = "Ventana Presencia";
             this.Load += new System.EventHandler(this.FormPresencia_Load);
@@ -78,5 +84,6 @@
 
         private System.Windows.Forms.DataGridView dgvListado;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.ToolTip ttpPresencia;
     }
 }

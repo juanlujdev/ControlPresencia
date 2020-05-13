@@ -40,6 +40,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermanencia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errPemanencia)).BeginInit();
             this.panel1.SuspendLayout();
@@ -52,7 +53,8 @@
             this.dtpFecha1.Location = new System.Drawing.Point(105, 19);
             this.dtpFecha1.Name = "dtpFecha1";
             this.dtpFecha1.Size = new System.Drawing.Size(97, 24);
-            this.dtpFecha1.TabIndex = 0;
+            this.dtpFecha1.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.dtpFecha1, "Introduce fecha");
             // 
             // dtpFecha2
             // 
@@ -61,7 +63,8 @@
             this.dtpFecha2.Location = new System.Drawing.Point(303, 20);
             this.dtpFecha2.Name = "dtpFecha2";
             this.dtpFecha2.Size = new System.Drawing.Size(97, 24);
-            this.dtpFecha2.TabIndex = 1;
+            this.dtpFecha2.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.dtpFecha2, "Introduce fecha");
             // 
             // lblFecha1
             // 
@@ -70,7 +73,7 @@
             this.lblFecha1.Location = new System.Drawing.Point(24, 24);
             this.lblFecha1.Name = "lblFecha1";
             this.lblFecha1.Size = new System.Drawing.Size(68, 19);
-            this.lblFecha1.TabIndex = 2;
+            this.lblFecha1.TabIndex = 0;
             this.lblFecha1.Text = "1ª Fecha";
             // 
             // lblFecha2
@@ -80,7 +83,7 @@
             this.lblFecha2.Location = new System.Drawing.Point(222, 25);
             this.lblFecha2.Name = "lblFecha2";
             this.lblFecha2.Size = new System.Drawing.Size(68, 19);
-            this.lblFecha2.TabIndex = 3;
+            this.lblFecha2.TabIndex = 2;
             this.lblFecha2.Text = "2ª Fecha";
             // 
             // dgvPermanencia
@@ -93,8 +96,10 @@
             this.dgvPermanencia.GridColor = System.Drawing.Color.LightBlue;
             this.dgvPermanencia.Location = new System.Drawing.Point(47, 122);
             this.dgvPermanencia.Name = "dgvPermanencia";
+            this.dgvPermanencia.ShowCellToolTips = false;
             this.dgvPermanencia.Size = new System.Drawing.Size(440, 232);
-            this.dgvPermanencia.TabIndex = 4;
+            this.dgvPermanencia.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.dgvPermanencia, "Haz click para calcular tiempo");
             this.dgvPermanencia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPermanencia_CellClick);
             this.dgvPermanencia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPermanencia_CellContentClick);
             // 
@@ -105,7 +110,7 @@
             this.lblDni.Location = new System.Drawing.Point(24, 71);
             this.lblDni.Name = "lblDni";
             this.lblDni.Size = new System.Drawing.Size(139, 19);
-            this.lblDni.TabIndex = 7;
+            this.lblDni.TabIndex = 4;
             this.lblDni.Text = "DNI del Empleado:";
             // 
             // lblMostrarDni
@@ -115,7 +120,7 @@
             this.lblMostrarDni.Location = new System.Drawing.Point(222, 71);
             this.lblMostrarDni.Name = "lblMostrarDni";
             this.lblMostrarDni.Size = new System.Drawing.Size(51, 19);
-            this.lblMostrarDni.TabIndex = 8;
+            this.lblMostrarDni.TabIndex = 5;
             this.lblMostrarDni.Text = "label1";
             // 
             // errPemanencia
@@ -137,7 +142,7 @@
             this.panel1.Location = new System.Drawing.Point(47, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(440, 103);
-            this.panel1.TabIndex = 9;
+            this.panel1.TabIndex = 0;
             // 
             // btnCerrar
             // 
@@ -149,7 +154,8 @@
             this.btnCerrar.Location = new System.Drawing.Point(313, 360);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(79, 65);
-            this.btnCerrar.TabIndex = 6;
+            this.btnCerrar.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.btnCerrar, "Pulsa para volver");
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
@@ -165,7 +171,8 @@
             this.btnConsultar.Location = new System.Drawing.Point(133, 360);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(79, 65);
-            this.btnConsultar.TabIndex = 5;
+            this.btnConsultar.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.btnConsultar, "Visualiza datos");
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
@@ -205,5 +212,6 @@
         private System.Windows.Forms.Label lblMostrarDni;
         private System.Windows.Forms.ErrorProvider errPemanencia;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

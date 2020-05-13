@@ -43,6 +43,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEnviar = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errpDatos)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +56,8 @@
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(157, 24);
-            this.txtNombre.TabIndex = 7;
+            this.txtNombre.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.txtNombre, "Introduce nombre");
             // 
             // txtApellido
             // 
@@ -65,7 +67,8 @@
             this.txtApellido.Multiline = true;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(157, 24);
-            this.txtApellido.TabIndex = 8;
+            this.txtApellido.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.txtApellido, "Introduce apellido");
             // 
             // txtContraseña
             // 
@@ -75,7 +78,8 @@
             this.txtContraseña.Multiline = true;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(157, 24);
-            this.txtContraseña.TabIndex = 9;
+            this.txtContraseña.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.txtContraseña, "Introduce contraseña");
             // 
             // lblNombre
             // 
@@ -84,7 +88,7 @@
             this.lblNombre.Location = new System.Drawing.Point(21, 56);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(67, 19);
-            this.lblNombre.TabIndex = 15;
+            this.lblNombre.TabIndex = 2;
             this.lblNombre.Text = "Nombre";
             // 
             // lblContraseña
@@ -94,7 +98,7 @@
             this.lblContraseña.Location = new System.Drawing.Point(21, 121);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(88, 19);
-            this.lblContraseña.TabIndex = 18;
+            this.lblContraseña.TabIndex = 6;
             this.lblContraseña.Text = "Contraseña";
             // 
             // lblApellido
@@ -104,7 +108,7 @@
             this.lblApellido.Location = new System.Drawing.Point(21, 89);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(67, 19);
-            this.lblApellido.TabIndex = 19;
+            this.lblApellido.TabIndex = 4;
             this.lblApellido.Text = "Apellido";
             // 
             // cbxAlta
@@ -114,8 +118,9 @@
             this.cbxAlta.Location = new System.Drawing.Point(3, 5);
             this.cbxAlta.Name = "cbxAlta";
             this.cbxAlta.Size = new System.Drawing.Size(57, 23);
-            this.cbxAlta.TabIndex = 21;
+            this.cbxAlta.TabIndex = 0;
             this.cbxAlta.Text = "Alta";
+            this.toolTip1.SetToolTip(this.cbxAlta, "Seleccion para dar alta");
             this.cbxAlta.UseVisualStyleBackColor = true;
             // 
             // cbxAdministrador
@@ -125,8 +130,9 @@
             this.cbxAdministrador.Location = new System.Drawing.Point(3, 43);
             this.cbxAdministrador.Name = "cbxAdministrador";
             this.cbxAdministrador.Size = new System.Drawing.Size(130, 23);
-            this.cbxAdministrador.TabIndex = 23;
+            this.cbxAdministrador.TabIndex = 1;
             this.cbxAdministrador.Text = "Administrador";
+            this.toolTip1.SetToolTip(this.cbxAdministrador, "Seleccion para ser admin");
             this.cbxAdministrador.UseVisualStyleBackColor = true;
             this.cbxAdministrador.CheckedChanged += new System.EventHandler(this.cbxAdministrador_CheckedChanged);
             this.cbxAdministrador.CheckStateChanged += new System.EventHandler(this.cbxAdministrador_CheckStateChanged);
@@ -138,7 +144,7 @@
             this.lblNif.Location = new System.Drawing.Point(21, 23);
             this.lblNif.Name = "lblNif";
             this.lblNif.Size = new System.Drawing.Size(34, 19);
-            this.lblNif.TabIndex = 25;
+            this.lblNif.TabIndex = 0;
             this.lblNif.Text = "NIF";
             // 
             // txtNif
@@ -149,7 +155,8 @@
             this.txtNif.Multiline = true;
             this.txtNif.Name = "txtNif";
             this.txtNif.Size = new System.Drawing.Size(157, 24);
-            this.txtNif.TabIndex = 24;
+            this.txtNif.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtNif, "Introducir DNI");
             // 
             // errpDatos
             // 
@@ -164,7 +171,7 @@
             this.panel1.Location = new System.Drawing.Point(297, 18);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(142, 68);
-            this.panel1.TabIndex = 27;
+            this.panel1.TabIndex = 8;
             // 
             // btnSalir
             // 
@@ -175,7 +182,8 @@
             this.btnSalir.Location = new System.Drawing.Point(390, 99);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(49, 54);
-            this.btnSalir.TabIndex = 26;
+            this.btnSalir.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.btnSalir, "Pulsa para volver");
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
@@ -188,7 +196,8 @@
             this.btnEnviar.Location = new System.Drawing.Point(297, 99);
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(49, 54);
-            this.btnEnviar.TabIndex = 20;
+            this.btnEnviar.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.btnEnviar, "Enviar datos");
             this.btnEnviar.UseVisualStyleBackColor = false;
             this.btnEnviar.Click += new System.EventHandler(this.btnSalida_Click);
             // 
@@ -197,7 +206,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(463, 163);
+            this.ClientSize = new System.Drawing.Size(455, 155);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSalir);
@@ -239,5 +248,6 @@
         private System.Windows.Forms.ErrorProvider errpDatos;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

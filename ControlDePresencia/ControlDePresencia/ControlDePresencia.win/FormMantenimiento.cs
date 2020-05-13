@@ -228,7 +228,7 @@ namespace ControlDePresencia
                     {
                         Empleado elimin = new Empleado();
                         int numRegistros = elimin.BorrarEmpleado(conexion, nif);
-                        MessageBox.Show(String.Format("Se ha borrado el empleado y se han eliminado {0} fichajes", numRegistros - 1));
+                        MessageBox.Show(String.Format("Se ha borrado el empleado y sus fichajes"));
                     }
                 }
                 else
@@ -244,6 +244,14 @@ namespace ControlDePresencia
             {
                 BDatos.CerrarConexion();
             }
+        }
+
+        private void dgvEmpleados_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+        }
+
+        private void dgvEmpleados_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
         }
     }
     #endregion
