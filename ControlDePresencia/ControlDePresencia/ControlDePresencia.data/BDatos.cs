@@ -27,13 +27,26 @@ namespace ControlDePresencia
         public static MySqlConnection ConexionBD()
         {
             //Conexión Local
-            string server = "server=127.0.0.1;";
+            //string server = "server=127.0.0.1;";
+            //string port = "port=3306;";
+            //string database = "database=control_presencia;";
+            //string usuario = "uid=root;";
+            //string password = "pwd=;";
+            //string datetime = "Convert Zero Datetime = True";
+            //string connectionstring = server + port + database + usuario + password + datetime;
+
+            //Conexion Remota
+            string server = "datasource=databasecdp.c9selgafhfmz.us-east-1.rds.amazonaws.com;";
             string port = "port=3306;";
+            string oldguids = "old guids=true;";
             string database = "database=control_presencia;";
-            string usuario = "uid=root;";
-            string password = "pwd=;";
+            string usuario = "username=admin;";
+            string password = "password=cdproot8;";
             string datetime = "Convert Zero Datetime = True";
-            string connectionstring = server + port + database + usuario + password + datetime;
+            string connectionstring = server + port + oldguids + database + usuario + password + datetime;
+
+            //Pruebar remota en dbforfree
+            //string MySqlConnectionString = "datasource=db4free.net;port=3306;username=pablo_dam;password=pablo-88;database=dam_test1;old guids=true";
 
             conexion = new MySqlConnection(connectionstring);
             return conexion;
@@ -52,7 +65,7 @@ namespace ControlDePresencia
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
                 return false;
             }
         }
@@ -70,7 +83,7 @@ namespace ControlDePresencia
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
                 return false;
             }
         }

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.CodeDom;
+using System.Text.RegularExpressions;
 #endregion
 
 namespace ControlDePresencia
@@ -24,10 +25,9 @@ namespace ControlDePresencia
         /// <param name="nif"></param>
         /// <returns>Devuelve tipo bool</returns>
         static public bool ComprobarLetra(string nif)
-        {
+        { 
             string tabla = "TRWAGMYFPDXBNJZSQVHLCKET";
             int indice;
-
             string soloNumeros = nif.Substring(0,nif.Length-1);//obtiene solo la numeracion del nif pasado por parametro
             int numeros = Convert.ToInt32(soloNumeros);
             indice = numeros % 23; //Calculo para sacar la poscion de la letra a raiz del numero del dno
@@ -35,6 +35,17 @@ namespace ControlDePresencia
             char letraCalculada = tabla[indice]; //letra que obtiene del calculo
             char letraParametro = nif[8]; //Letra del nif pasado por parametro
             if (letraCalculada == letraParametro) return true; return false;
+        }
+        
+        static public bool ComprobarCadaValorNif(string nif)
+        {
+            string soloNumeros = nif.Substring(0, nif.Length - 1);
+            bool esString= false;
+            for (int i = 0; i < soloNumeros.Length; i++)
+            {             
+                if (Char.IsLetter(soloNumeros, i)) esString = true;              
+            }
+            return esString;
         }
 
         /// <summary>

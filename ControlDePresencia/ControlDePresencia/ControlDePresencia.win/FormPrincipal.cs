@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 #endregion
@@ -22,10 +23,12 @@ namespace ControlDePresencia
         private bool Validacion()
         {
             bool ok = true;
-            if (txtDni.Text.Length < 9 || txtDni.Text.Length > 9)
+            string nif = txtDni.Text;
+            
+            if (txtDni.Text.Length < 9 || txtDni.Text.Length > 9 || LibreriaMetodos.ComprobarCadaValorNif(nif))
             {
                 ok = false;
-                errPrincpial.SetError(txtDni, "Longitud del DNI incorrecto o campo vacio");
+                errPrincpial.SetError(txtDni, "Longitud del DNI incorrecto o Valores incorrectos");
             }
             else
             {
