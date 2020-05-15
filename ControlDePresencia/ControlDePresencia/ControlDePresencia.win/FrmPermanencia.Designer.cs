@@ -41,6 +41,8 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lbltiempo = new System.Windows.Forms.Label();
+            this.lblMostrartiempo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermanencia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errPemanencia)).BeginInit();
             this.panel1.SuspendLayout();
@@ -109,15 +111,15 @@
             this.lblDni.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblDni.Location = new System.Drawing.Point(24, 71);
             this.lblDni.Name = "lblDni";
-            this.lblDni.Size = new System.Drawing.Size(139, 19);
+            this.lblDni.Size = new System.Drawing.Size(53, 19);
             this.lblDni.TabIndex = 4;
-            this.lblDni.Text = "DNI del Empleado:";
+            this.lblDni.Text = "DNI:   ";
             // 
             // lblMostrarDni
             // 
             this.lblMostrarDni.AutoSize = true;
             this.lblMostrarDni.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lblMostrarDni.Location = new System.Drawing.Point(222, 71);
+            this.lblMostrarDni.Location = new System.Drawing.Point(101, 71);
             this.lblMostrarDni.Name = "lblMostrarDni";
             this.lblMostrarDni.Size = new System.Drawing.Size(51, 19);
             this.lblMostrarDni.TabIndex = 5;
@@ -133,6 +135,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel1.Controls.Add(this.lblMostrartiempo);
+            this.panel1.Controls.Add(this.lbltiempo);
             this.panel1.Controls.Add(this.lblMostrarDni);
             this.panel1.Controls.Add(this.lblDni);
             this.panel1.Controls.Add(this.lblFecha2);
@@ -151,7 +155,7 @@
             this.btnCerrar.BackgroundImage = global::ControlDePresencia.Properties.Resources.volver2;
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnCerrar.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.Location = new System.Drawing.Point(313, 360);
+            this.btnCerrar.Location = new System.Drawing.Point(301, 360);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(79, 65);
             this.btnCerrar.TabIndex = 3;
@@ -168,13 +172,34 @@
             this.btnConsultar.BackgroundImage = global::ControlDePresencia.Properties.Resources.consulta_busqueda1;
             this.btnConsultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnConsultar.Font = new System.Drawing.Font("Bahnschrift Condensed", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultar.Location = new System.Drawing.Point(133, 360);
+            this.btnConsultar.Location = new System.Drawing.Point(152, 360);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(79, 65);
             this.btnConsultar.TabIndex = 2;
             this.toolTip1.SetToolTip(this.btnConsultar, "Visualiza datos");
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // lbltiempo
+            // 
+            this.lbltiempo.AutoSize = true;
+            this.lbltiempo.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lbltiempo.Location = new System.Drawing.Point(222, 71);
+            this.lbltiempo.Name = "lbltiempo";
+            this.lbltiempo.Size = new System.Drawing.Size(75, 19);
+            this.lbltiempo.TabIndex = 7;
+            this.lbltiempo.Text = "Minutos: ";
+            // 
+            // lblMostrartiempo
+            // 
+            this.lblMostrartiempo.AutoSize = true;
+            this.lblMostrartiempo.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lblMostrartiempo.Location = new System.Drawing.Point(349, 71);
+            this.lblMostrartiempo.Name = "lblMostrartiempo";
+            this.lblMostrartiempo.Size = new System.Drawing.Size(18, 19);
+            this.lblMostrartiempo.TabIndex = 8;
+            this.lblMostrartiempo.Text = "0";
+            this.lblMostrartiempo.Click += new System.EventHandler(this.lblMostrartiempo_Click);
             // 
             // FrmPermanencia
             // 
@@ -213,5 +238,7 @@
         private System.Windows.Forms.ErrorProvider errPemanencia;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label lblMostrartiempo;
+        private System.Windows.Forms.Label lbltiempo;
     }
 }

@@ -39,11 +39,13 @@ namespace ControlDePresencia
         private bool ValidarDatos()
         {
             bool ok = true;
+            string nif = txtNif.Text;
+            
 
-            if (txtNif.Text == "")
+            if (txtNif.Text.Length < 9 || txtNif.Text.Length > 9 || LibreriaMetodos.ComprobarCadaValorNif(nif))
             {
                 ok = false;
-                errpDatos.SetError(txtNif, "Ingresa Nif");
+                errpDatos.SetError(txtNif, "Longitud del DNI incorrecto o Valores incorrectos");
             }
             else
             {

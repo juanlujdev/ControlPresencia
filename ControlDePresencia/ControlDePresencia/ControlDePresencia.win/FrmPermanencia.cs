@@ -37,6 +37,22 @@ namespace ControlDePresencia
         }
         #endregion
 
+        #region Metodo de implantacion
+        /// <summary>
+        /// Metodo para calcular el tiempo del dgv
+        /// </summary>
+        /// <returns></returns>
+        private double ObtenerTiempo()
+        {
+            double tiempo = 0;
+            for (int i = 0; i < dgvPermanencia.Rows.Count; i++)
+            {
+                tiempo += Convert.ToInt32(dgvPermanencia.Rows[i].Cells[2].Value);
+            }
+            return tiempo;
+        }
+        #endregion
+
         public FrmPermanencia(string nif)//le paso al constructor el nif del form principal previamente comprobado letra y usuario de alta
         {
             InitializeComponent();
@@ -49,8 +65,8 @@ namespace ControlDePresencia
         }
 
         private void FrmPermanencia_Load(object sender, EventArgs e)
-        {
-            
+        {           
+
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
@@ -79,22 +95,25 @@ namespace ControlDePresencia
             {
                 BDatos.CerrarConexion();
             }
+
+            lblMostrartiempo.Text = ObtenerTiempo().ToString(); //Actuliza el lbl cuando consultas
         }
 
         private void dgvPermanencia_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void dgvPermanencia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            double tiempo = 0;
-            for (int i=0; i < dgvPermanencia.Rows.Count; i++)
-            {
-                tiempo += Convert.ToInt32(dgvPermanencia.Rows[i].Cells[2].Value);
-            }
-            double horas = tiempo / 60;
+            double tiempo = ObtenerTiempo();
+            double horas = tiempo / 60;            
             MessageBox.Show(String.Format("El empleado ha fichado un total de:\nMinutos:  {0}\nHoras:  {1:00.00}",tiempo,horas));
         }
+
+        private void lblMostrartiempo_Click(object sender, EventArgs e)
+        {
+           
+        }
+       
     }
 }
