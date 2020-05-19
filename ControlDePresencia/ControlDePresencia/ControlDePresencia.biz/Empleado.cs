@@ -56,7 +56,7 @@ namespace ControlDePresencia.ControlDePresencia.biz
         {
             int retorno;
             bool exist = false; //Almacenara F/T dependiendo si encuentra o no coincidencia
-            string consulta = String.Format("UPDATE empleado SET alta=FALSE WHERE nif = '{0}';", nif); //Query
+            string consulta = String.Format("UPDATE empleado SET alta=FALSE WHERE nif = '{0}' and alta=True;", nif); //Query
             MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta                       
             //MessageBox.Show(consulta); //Comprobacion
             retorno = comando.ExecuteNonQuery(); //Lanza la consulta

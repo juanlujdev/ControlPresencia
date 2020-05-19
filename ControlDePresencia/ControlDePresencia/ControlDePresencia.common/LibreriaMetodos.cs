@@ -37,7 +37,7 @@ namespace ControlDePresencia
 
                 char letraCalculada = tabla[indice]; //letra que obtiene del calculo
                 char letraParametro = nif[8]; //Letra del nif pasado por parametro
-                if (letraCalculada == letraParametro)  ok = true; ok = false;
+                ok = letraCalculada == letraParametro ? true : false;
 
             }
             catch (Exception ex)
@@ -72,7 +72,7 @@ namespace ControlDePresencia
         static public bool ComprobarEmpleado(string nif, MySqlConnection conexion)
         {
             bool exist = false;
-            string consulta = String.Format("SELECT * FROM empleado WHERE nif = '{0}';", nif); //Query
+            string consulta = String.Format("SELECT * FROM empleado WHERE nif = '{0}' and alta=true;", nif); //Query
             MySqlCommand comando = new MySqlCommand(consulta, conexion); //Se instancia la clase command para la consulta
             //MessageBox.Show(consulta); //Comprobacion
             MySqlDataReader reader = comando.ExecuteReader(); //Lanza la consulta
