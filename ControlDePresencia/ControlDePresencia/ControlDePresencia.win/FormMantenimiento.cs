@@ -24,6 +24,9 @@ namespace ControlDePresencia
         }
 
         #region Funciones
+        /// <summary>
+        /// Funcion general para cargar los dos data greed view.
+        /// </summary>
         private void CargarDGV()
         {
             try
@@ -50,6 +53,10 @@ namespace ControlDePresencia
             }
         }
 
+        /// <summary>
+        /// Metodos de carga del dgv relacionado con la funcionalidad de clickar una celda y filtrar por dni.
+        /// </summary>
+        /// <param name="nif"></param>
         private void CargarDgvFichaje(string nif)
         {
             try
@@ -73,7 +80,10 @@ namespace ControlDePresencia
                 BDatos.CerrarConexion();
             }
         }
-
+        /// <summary>
+        /// Metodos de carga del dgv relacionado con la funcionalidad de clickar una celda y filtrar por dni.
+        /// </summary>
+        /// <param name="nif"></param>
         private void CargarDgvEmpleado(string nif)
         {
             try
